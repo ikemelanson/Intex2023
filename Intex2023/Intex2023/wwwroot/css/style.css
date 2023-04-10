@@ -937,16 +937,7 @@ textarea.form-control {
 
 /* /teacher */
 /* footer */
-.newsletter {
-    background-image: linear-gradient(to right, transparent 50%, #ffbc3b 50%);
-    margin-bottom: -170px;
-    position: relative;
-    z-index: 1;
-}
 
-.newsletter-block {
-    padding-left: 50px;
-}
 
 @media (max-width: 575px) {
     .newsletter-block {
@@ -986,15 +977,12 @@ textarea.form-control {
 }
 
 .logo-footer {
-    margin-top: -20px;
     display: inline-block;
-    height: 20px;
-    width: auto;
 }
 
 .footer {
     border-color: #494a43 !important;
-    padding-top: 275px;
+    padding-top: 20px;
 }
 
 /* /footer */
