@@ -58,18 +58,8 @@
     <!-- header -->
     <header class="fixed-top header">
         <!-- top header -->
-        <div class="top-header py-2 bg-white">
-            <div class="container">
-                <div class="row no-gutters">
-                    <div class="col-lg-8 text-center text-lg-right">
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#cookiesModal" data-toggle="modal" data-target="#cookiesModal">Cookie</a></li>
-                            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#signupModal" data-toggle="modal" data-target="#signupModal">register</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <partial name="_LoginPartial" />
+
         <!-- navbar -->
         <div class="navigation w-100">
             <div class="container">
@@ -284,6 +274,6 @@
     <script src="~/plugins/google-map/gmap.js"></script>
     <!-- Main Script -->
     <script src="~/js/script.js"></script>
-
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

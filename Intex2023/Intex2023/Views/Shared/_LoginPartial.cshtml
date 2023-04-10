@@ -1,8 +1,11 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
-
-<ul class="navbar-nav">
+<div class="top-header py-2 bg-white">
+<div class="container">
+<div class="row no-gutters">
+<div class="col-lg-12 text-center text-lg-right">
+<ul class="list-inline">
 @if (SignInManager.IsSignedIn(User))
 {
     <li class="nav-item">
@@ -16,11 +19,15 @@
 }
 else
 {
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+    <li class="list-inline-item">
+        <a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" asp-area="Identity" asp-page="/Account/Register">Register</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+    <li class="list-inline-item">
+        <a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" asp-area="Identity" asp-page="/Account/Login">Login</a>
     </li>
 }
 </ul>
+        </div>
+      </div>
+    </div>
+  </div>
