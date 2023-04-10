@@ -12,12 +12,16 @@ build_property.RootNamespace = Intex2023
 build_property.ProjectDir = C:\Users\omoor\source\repos\Intex2023\Intex2023\Intex2023\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\omoor\source\repos\Intex2023\Intex2023\Intex2023
 build_property._RazorSourceGeneratorDebug = 
 
 [C:/Users/omoor/source/repos/Intex2023/Intex2023/Intex2023/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/omoor/source/repos/Intex2023/Intex2023/Intex2023/Views/Home/BurialRecords.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxCdXJpYWxSZWNvcmRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/omoor/source/repos/Intex2023/Intex2023/Intex2023/Views/Home/Index.cshtml]

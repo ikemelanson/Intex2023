@@ -18,6 +18,11 @@ namespace Intex2023.Controllers
             return View();
         }
 
+        public IActionResult BurialRecords()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

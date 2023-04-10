@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TEwZsn9xfyxOpQ9HwrB5Fr+lLBq8ELnwMflNiTaErFU=",
+  "Hash": "J5KZ6L5Q9Nc1EV1anqnqDoboIddFnOaPeAnSuF2Fx2I=",
   "Source": "Intex2023",
   "BasePath": "_content/Intex2023",
   "Mode": "Default",
@@ -1562,23 +1562,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\favicon.png"
-    },
-    {
-      "Identity": "C:\\Users\\omoor\\source\\repos\\Intex2023\\Intex2023\\Intex2023\\wwwroot\\images\\gamuoshill.jpg",
-      "SourceId": "Intex2023",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\omoor\\source\\repos\\Intex2023\\Intex2023\\Intex2023\\wwwroot\\",
-      "BasePath": "_content/Intex2023",
-      "RelativePath": "images/gamuoshill.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\gamuoshill.jpg"
     },
     {
       "Identity": "C:\\Users\\omoor\\source\\repos\\Intex2023\\Intex2023\\Intex2023\\wwwroot\\images\\logo.png",

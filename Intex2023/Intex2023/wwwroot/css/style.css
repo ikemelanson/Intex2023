@@ -314,7 +314,7 @@ a h4:hover {
         top: 0;
         left: 0;
         background: #1a1a37;
-        opacity: 0.8;
+        opacity: 0.2;
     }
 
 .outline-0 {
@@ -497,13 +497,13 @@ textarea.form-control {
 
 @media (max-width: 991px) {
     .navigation {
-        background: #1a1a37;
+        background: #8B8885;
     }
 }
 
 @media (max-width: 991px) {
     .navbar-collapse {
-        background: #1a1a37;
+        background: #8B8885;
         max-height: calc(100vh - 80px);
     }
 
@@ -520,12 +520,12 @@ textarea.form-control {
 @media (max-width: 991px) {
     .navbar-nav {
         padding-left: 0;
-        background: #1a1a37;
+        background: #8B8885;
     }
 }
 
 .nav-bg {
-    background-color: #1a1a37;
+    background-color: #8B8885;
 }
 
 .nav-item {
@@ -988,6 +988,8 @@ textarea.form-control {
 .logo-footer {
     margin-top: -20px;
     display: inline-block;
+    height: 20px;
+    width: auto;
 }
 
 .footer {
