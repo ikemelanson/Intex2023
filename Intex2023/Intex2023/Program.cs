@@ -60,7 +60,7 @@ app.UseAuthorization();
 app.Use(async (context, next) =>
 {
     context.Response.Headers.Add("Content-Security-Policy", "default-src 'self'; " +
-        "connect-src 'self' 'unsafe-inline' https://maps.googleapis.com/maps/api/mapsjs/gen_204?csp_test=true; " +
+        "connect-src 'self' 'unsafe-inline' https://maps.googleapis.com/maps/api/mapsjs/gen_204?csp_test=true wss://localhost:44356/Intex2023/; " +
         "script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://maps.googleapis.com https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js; " +
         "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
         "font-src 'self' data: https://fonts.gstatic.com; " +
