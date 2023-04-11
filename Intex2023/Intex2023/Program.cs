@@ -61,7 +61,7 @@ app.Use(async (context, next) =>
         "script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://maps.googleapis.com https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js; " +
         "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
         "font-src 'self' data: https://fonts.gstatic.com; " +
-        "img-src 'self' data: https://www.google-analytics.com https://maps.gstatic.com https://maps.googleapis.com https://i.postimg.cc/ht2drfw6/gamuoshill.jpg; " +
+        "img-src 'self' data: https://www.google-analytics.com https://maps.gstatic.com https://maps.googleapis.com https://i.postimg.cc/ht2drfw6/gamuoshill.jpg https://i.postimg.cc/VLrh7szq/hierogl.jpg https://i.postimg.cc/zDCcR2XN/hiero.jpg; " +
         "frame-src 'self' https://www.google.com https://www.google.com/maps");
     await next();
 });
