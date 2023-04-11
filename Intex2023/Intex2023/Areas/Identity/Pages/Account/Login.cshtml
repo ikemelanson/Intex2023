@@ -31,15 +31,15 @@
                     <h4>Use a local account to log in.</h4>
                     <hr />
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <input asp-for="Input.Email" class="form-control mb-3" autocomplete="username" aria-required="true" name="signupEmail" placeholder="Email" />
+                    <input asp-for="Input.Email" class="form-control mb-3" aria-required="true" name="Email" placeholder="Email" />
                      <span asp-validation-for="Input.Email" class="text-danger"></span>
-                     <input asp-for="Input.Password" class="form-control mb-3" autocomplete="current-password" aria-required="true" name="signupPassword" placeholder="Password" />
+                     <input asp-for="Input.Password" class="form-control mb-3" aria-required="true" name="Password" placeholder="Password" />
                      <span asp-validation-for="Input.Password" class="text-danger"></span>
                      <div class="col-12 checkbox">
                         <hr />
 
                         <label asp-for="Input.RememberMe" class="form-label">
-                            <input class="form-check-input" asp-for="Input.RememberMe" />
+                            <input class="form-check-input" asp-for="Input.RememberMe" name="RememberMe"/>
                             @Html.DisplayNameFor(m => m.Input.RememberMe)
                         </label>
                      </div>
