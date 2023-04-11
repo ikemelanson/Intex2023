@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-md-8">
                 <ul class="list-inline mb-2">
-                    <li class="list-inline-item text-white h3 font-secondary nasted">Login</li>
+                    <li class="list-inline-item text-white h3 font-secondary nasted">Register</li>
                 </ul>
                 <p class="text-lighten mb-0">Our courses offer a good compromise between the continuous assessment favoured by some universities and the emphasis placed on final exams by others.</p>
             </div>
@@ -17,40 +17,40 @@
 </section>
 <section class="section bg-gray">
     <div class="container">
-<div class="row">
+        <div class="row">
             <div class="col-lg-12">
                 <h2 class="section-title">Register!</h2>
             </div>
         </div>
-    <div class="row">
-                <div class="col-lg-7 mb-4 mb-lg-0">
-        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h4>Create a new account.</h4>
-            <hr />
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        <input asp-for="Input.Email" class="form-control mb-3" autocomplete="username" aria-required="true" name="userName" placeholder="Username" />
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
-                        <input asp-for="Input.Password" class="form-control mb-3" autocomplete="new-password" aria-required="true" name="password" placeholder="Password" />
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
-                        <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" name="password" placeholder="Confirm Password" />
-                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-                <div class="col-12 checkbox">
+        <div class="row">
+            <div class="col-lg-7 mb-4 mb-lg-0">
+                <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                    <h4>Create a new account.</h4>
                     <hr />
-                </div>
-            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
-        </form>
-    </div>
-    <div class="col-lg-5">
-        <section>
-            <h3>Use another service to register.</h3>
-            <hr />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input asp-for="Input.Email" class="form-control mb-3" aria-required="true" name="signupEmail" placeholder="Email" />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    <input asp-for="Input.Password" class="form-control mb-3" aria-required="true" name="signupPassword" placeholder="Password" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    <input asp-for="Input.ConfirmPassword" class="form-control" aria-required="true" name="signupPassword" placeholder="Confirm Password" />
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                    <div class="col-12 checkbox">
+                        <hr />
+                    </div>
+                    <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+                </form>
+            </div>
+            <div class="col-lg-5">
+                <section>
+                    <h3>Use another service to register.</h3>
+                    <hr />
             @{
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)
                 {
-                        <p class="mb-5">
-                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
-                            about setting up this ASP.NET application to support logging in via external services</a>.
-                        </p>
+                    <p class="mb-5">
+                        There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
+                        about setting up this ASP.NET application to support logging in via external services</a>.
+                    </p>
                 }
                 else
                 {
@@ -66,9 +66,10 @@
                     </form>
                 }
             }
-        </section>
-    </div>
+                </section>
+            </div>
         </div>
+    </div>
 </section>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
