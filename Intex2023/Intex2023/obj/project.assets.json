@@ -273,11 +273,11 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Identity.UI/6.0.0": {
+      "Microsoft.AspNetCore.Identity.UI/6.0.15": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.FileProviders.Embedded": "6.0.0",
-          "Microsoft.Extensions.Identity.Stores": "6.0.0"
+          "Microsoft.Extensions.FileProviders.Embedded": "6.0.15",
+          "Microsoft.Extensions.Identity.Stores": "6.0.15"
         },
         "compile": {
           "lib/net6.0/Microsoft.AspNetCore.Identity.UI.dll": {
@@ -1534,7 +1534,7 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "Microsoft.Extensions.FileProviders.Embedded/6.0.0": {
+      "Microsoft.Extensions.FileProviders.Embedded/6.0.15": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.FileProviders.Abstractions": "6.0.0"
@@ -4582,10 +4582,10 @@
         "microsoft.aspnetcore.identity.entityframeworkcore.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Identity.UI/6.0.0": {
-      "sha512": "mOHPfEtt524BDlZPZ4rXZRZp5R8LnMXAJ+57tx7eaSw8KGqI+qYUbtFRtZKynZma3+tuiLhJlVhOTj2IdfB8WQ==",
+    "Microsoft.AspNetCore.Identity.UI/6.0.15": {
+      "sha512": "9FJksl408/RYSDTXqIMfKuNZib4XmY7a2uf5QaA81nIjJijenre1uS0fzTkYhupV6kAp8TTUM6ZbriQlhl25Yg==",
       "type": "package",
-      "path": "microsoft.aspnetcore.identity.ui/6.0.0",
+      "path": "microsoft.aspnetcore.identity.ui/6.0.15",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4600,7 +4600,7 @@
         "buildTransitive/Microsoft.AspNetCore.Identity.UI.targets",
         "lib/net6.0/Microsoft.AspNetCore.Identity.UI.dll",
         "lib/net6.0/Microsoft.AspNetCore.Identity.UI.xml",
-        "microsoft.aspnetcore.identity.ui.6.0.0.nupkg.sha512",
+        "microsoft.aspnetcore.identity.ui.6.0.15.nupkg.sha512",
         "microsoft.aspnetcore.identity.ui.nuspec",
         "staticwebassets/V4/css/site.css",
         "staticwebassets/V4/favicon.ico",
@@ -5995,10 +5995,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.FileProviders.Embedded/6.0.0": {
-      "sha512": "9uQbDTqX1MidhoZFUSK1JItt74IapEadFDOIWAlBIKxr3O/ZEWLWkLYGlgUeP1Dkyog6/CB7h1EAU3xADYZ/lA==",
+    "Microsoft.Extensions.FileProviders.Embedded/6.0.15": {
+      "sha512": "fNV1oBar6qI+WAvVTLXnLwVffWMkrRn+kuwvMt1tv+dwRuL3QQEq4Df2gnzJI+WbcBvN8AjWiM3Or7ohieEDdQ==",
       "type": "package",
-      "path": "microsoft.extensions.fileproviders.embedded/6.0.0",
+      "path": "microsoft.extensions.fileproviders.embedded/6.0.15",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6013,7 +6013,7 @@
         "lib/net6.0/Microsoft.Extensions.FileProviders.Embedded.xml",
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Embedded.dll",
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Embedded.xml",
-        "microsoft.extensions.fileproviders.embedded.6.0.0.nupkg.sha512",
+        "microsoft.extensions.fileproviders.embedded.6.0.15.nupkg.sha512",
         "microsoft.extensions.fileproviders.embedded.nuspec",
         "tasks/netstandard2.0/Microsoft.Extensions.FileProviders.Embedded.Manifest.Task.dll"
       ]
@@ -11819,7 +11819,7 @@
     "net6.0": [
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 6.0.14",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.15",
-      "Microsoft.AspNetCore.Identity.UI >= 6.0.0",
+      "Microsoft.AspNetCore.Identity.UI >= 6.0.15",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 6.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.4",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.4",
@@ -11836,11 +11836,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\omoor\\source\\repos\\Intex2023\\Intex2023\\Intex2023\\Intex2023.csproj",
+      "projectUniqueName": "C:\\Users\\omoor\\Source\\Repos\\Intex2023\\Intex2023\\Intex2023\\Intex2023.csproj",
       "projectName": "Intex2023",
-      "projectPath": "C:\\Users\\omoor\\source\\repos\\Intex2023\\Intex2023\\Intex2023\\Intex2023.csproj",
+      "projectPath": "C:\\Users\\omoor\\Source\\Repos\\Intex2023\\Intex2023\\Intex2023\\Intex2023.csproj",
       "packagesPath": "C:\\Users\\omoor\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\omoor\\source\\repos\\Intex2023\\Intex2023\\Intex2023\\obj\\",
+      "outputPath": "C:\\Users\\omoor\\Source\\Repos\\Intex2023\\Intex2023\\Intex2023\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -11884,7 +11884,7 @@
           },
           "Microsoft.AspNetCore.Identity.UI": {
             "target": "Package",
-            "version": "[6.0.0, )"
+            "version": "[6.0.15, )"
           },
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
             "target": "Package",

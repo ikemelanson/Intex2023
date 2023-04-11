@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\omoor\\source\\repos\\Intex2023\\Intex2023\\Intex2023\\Intex2023.csproj": {}
+    "C:\\Users\\omoor\\Source\\Repos\\Intex2023\\Intex2023\\Intex2023\\Intex2023.csproj": {}
   },
   "projects": {
-    "C:\\Users\\omoor\\source\\repos\\Intex2023\\Intex2023\\Intex2023\\Intex2023.csproj": {
+    "C:\\Users\\omoor\\Source\\Repos\\Intex2023\\Intex2023\\Intex2023\\Intex2023.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\omoor\\source\\repos\\Intex2023\\Intex2023\\Intex2023\\Intex2023.csproj",
+        "projectUniqueName": "C:\\Users\\omoor\\Source\\Repos\\Intex2023\\Intex2023\\Intex2023\\Intex2023.csproj",
         "projectName": "Intex2023",
-        "projectPath": "C:\\Users\\omoor\\source\\repos\\Intex2023\\Intex2023\\Intex2023\\Intex2023.csproj",
+        "projectPath": "C:\\Users\\omoor\\Source\\Repos\\Intex2023\\Intex2023\\Intex2023\\Intex2023.csproj",
         "packagesPath": "C:\\Users\\omoor\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\omoor\\source\\repos\\Intex2023\\Intex2023\\Intex2023\\obj\\",
+        "outputPath": "C:\\Users\\omoor\\Source\\Repos\\Intex2023\\Intex2023\\Intex2023\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -55,7 +55,7 @@
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[6.0.15, )"
             },
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",
