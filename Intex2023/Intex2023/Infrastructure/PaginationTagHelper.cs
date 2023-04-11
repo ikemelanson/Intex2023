@@ -9,7 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Intex2023.Models.ViewModels;
 
-namespace omoore2_mission9.Infrastructure
+namespace Intex2023.Infrastructure
 {
     [HtmlTargetElement("div", Attributes = "page-blah")]
     public class PaginationTagHelper : TagHelper

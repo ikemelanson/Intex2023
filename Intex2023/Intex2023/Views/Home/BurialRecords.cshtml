@@ -1,10 +1,10 @@
-﻿@*
+﻿@using Intex2023.Models.ViewModels;
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
-@using System.Web
-@model Burial
+@model BurialsViewModel
 
 <!-- page title -->
 <section class="page-title-section overlay bg-cover" style="background-image:url('https://i.postimg.cc/VLrh7szq/hierogl.jpg');">
@@ -26,27 +26,17 @@
     <div class="container">
         <!-- course list -->
         <div class="row justify-content-center">
-            <!-- course item -->
-            <div class="col-lg-4 col-sm-6 mb-5">
-                <div class="card p-0 border-primary rounded-0 hover-shadow">
-                    <div class="card-body">
-                        <ul class="list-inline mb-2">
-                            <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>Date</li>
-                            <li class="list-inline-item"><a class="text-color" href="course-single.html">Something</a></li>
-                        </ul>
-                        <a href="course-single.html">
-                            <h4 class="card-title">Title</h4>
-                        </a>
-                        <p class="card-text mb-4">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna.
-                        </p>
-                        <a href="course-single.html" class="btn btn-primary btn-sm">Edit</a>
-                        <a href="course-single.html" class="btn btn-primary btn-sm">Delete</a>
+            
+            @foreach (Burial b in Model.Burials)
+            {
+                <partial name="BurialSummary" model="b" />
 
-                    </div>
-                </div>
-            </div>
+            }
+            <div page-blah="@Model.PageInfo" page-action="Index" page-classes-enabled="true"
+                 page-class="btn" page-class-normal="btn-outline-dark"
+                 page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
+
+
         </div>
         <!-- /course list -->
     </div>

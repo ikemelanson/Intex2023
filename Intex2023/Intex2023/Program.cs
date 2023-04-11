@@ -1,26 +1,36 @@
 using Intex2023.Data;
+using Intex2023.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connectionString = builder.Configuration["ConnectionStrings:LoginConnection"];
+var loginConnectionString = builder.Configuration["ConnectionStrings:LoginConnection"];
+var burialConnectionString = builder.Configuration["ConnectionStrings:BurialConnection"];
 
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseNpgsql(connectionString));
+    options.UseNpgsql(loginConnectionString));
+
+builder.Services.AddDbContext<BurialContext>(options =>
+    options.UseNpgsql(burialConnectionString));
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
     builder.Services.AddControllersWithViews();
+
 builder.Services.Configure<CookiePolicyOptions>(options =>
 {
     options.CheckConsentNeeded = context => true;
     options.MinimumSameSitePolicy = SameSiteMode.None;
 });
+builder.Services.AddScoped<IBurialRepository, EFBurialRepository>();
+
 builder.Services.Configure<IdentityOptions>(options =>
 {
     // Default Password settings.
@@ -70,8 +80,19 @@ app.Use(async (context, next) =>
 });
 
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    name: "categorypage",
+    pattern: "{burialCategory}/Page{pageNum}",
+    defaults: new { controller = "Home", action = "Index" });
+app.MapControllerRoute(
+    name: "paging",
+    pattern: "Page{pageNum}",
+    defaults: new { controller = "Home", action = "Index", pageNum = 1});
+app.MapControllerRoute(
+    name: "category",
+    pattern: "{burialCategory}",
+    defaults: new { controller = "Home", action = "Index", pageNum = 1 });
 app.MapRazorPages();
 
+
 app.Run();
+

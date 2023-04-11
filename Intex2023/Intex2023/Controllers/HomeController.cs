@@ -1,4 +1,5 @@
 ﻿using Intex2023.Models;
+using Intex2023.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,11 +7,10 @@ namespace Intex2023.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private IBurialRepository repo;
+        public HomeController(IBurialRepository temp)
         {
-            _logger = logger;
+            repo = temp;
         }
 
         public IActionResult Index()
@@ -18,9 +18,29 @@ namespace Intex2023.Controllers
             return View();
         }
 
-        public IActionResult BurialRecords()
+        public IActionResult BurialRecords(string burialCategory, int pageNum = 1)
         {
-            return View();
+            int pageSize = 10;
+
+            var x = new BurialsViewModel
+            {
+                Burials = repo.Burials
+                .Where(b => b.Category == burialCategory || burialCategory == null)
+                .OrderBy(b => b.Title)
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize),
+
+                PageInfo = new PageInfo
+                {
+                    TotalNumRecords =
+                        (burialCategory == null ? repo.Burials.Count() : repo.Burials.Where(x => x.Category == burialCategory).Count()),
+                    BurialsPerPage = pageSize,
+                    CurrentPage = pageNum
+                }
+
+            };
+
+            return View(x);
         }
         public IActionResult Supervised()
         {
