@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Intex2023.Models.ViewModels;
+using Microsoft.AspNetCore.Http.Extensions;
 
 namespace Intex2023.Infrastructure
 {
@@ -36,12 +37,17 @@ namespace Intex2023.Infrastructure
 
 
         public override void Process(TagHelperContext thc, TagHelperOutput tho)
+            //These pagination elements will display the previous two pages as button options AND will display the next two pages as button options. 
         {
             IUrlHelper uh = uhf.GetUrlHelper(vc);
 
             TagBuilder final = new TagBuilder("div");
 
-            for (int i = 1; i <= PageBlah.TotalPages; i++)
+
+            int start = PageBlah.CurrentPage <= 2 ? 1 : PageBlah.CurrentPage - 2;
+            int end = PageBlah.CurrentPage >= PageBlah.TotalPages - 2 ? PageBlah.TotalPages : PageBlah.CurrentPage + 2;
+
+            for (int i = start; i <= end; i++)
             {
                 TagBuilder tb = new TagBuilder("a");
 

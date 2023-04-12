@@ -20,11 +20,11 @@ namespace Intex2023.Controllers
 
         public IActionResult BurialRecords(string burialhaircolor, int pageNum = 1)
         {
-            int pageSize = 10;
+            int pageSize = 15;
 
             var x = new BurialsViewModel
             {
-                Burials = repo.Burials
+                burialmain = repo.Burials
                 .Where(b => b.haircolor == burialhaircolor || burialhaircolor == null)
                 //.OrderBy(b => b.Title)
                 .Skip((pageNum - 1) * pageSize)

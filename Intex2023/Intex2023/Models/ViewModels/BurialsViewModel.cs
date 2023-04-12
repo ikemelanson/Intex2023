@@ -7,7 +7,7 @@ namespace Intex2023.Models.ViewModels
 {
     public class BurialsViewModel
     {
-        public IQueryable<Burial> Burials { get; set; }
+        public IQueryable<Burial> burialmain { get; set; }
         public PageInfo PageInfo { get; set; }
     }
 }

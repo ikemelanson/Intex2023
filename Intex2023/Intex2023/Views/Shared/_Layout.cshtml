@@ -13,7 +13,7 @@
     <!-- Basic Page Needs
       ================================================== -->
     <meta charset="utf-8">
-    <title>@ViewData["Title"] - Intex2023</title>
+    <title>@ViewData["Title"]</title>
 
     <!-- Mobile Specific Metas
       ================================================== -->
@@ -75,22 +75,22 @@
                             <li class="nav-item @@courses">
                                 <a class="nav-link" asp-controller="Home" asp-action="BurialRecords">Burial Records</a>
                             </li>
-                            <li class="nav-item @@events">
-                                <a class="nav-link" href="events.html">Admin</a>
-                            </li>
+
                             <li class="nav-item @@blog">
                                 <a class="nav-link" asp-controller="Home" asp-action="Tech">Tech Stack</a>
                             </li>
                             <li class="nav-item dropdown view">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Analysis
+                                    Data Analysis
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" asp-controller="Home" asp-action="Supervised">Supervised</a></li>
                                     <li><a class="dropdown-item" asp-controller="Home" asp-action="Unsupervised">Unsupervised</a></li>
                                 </ul>
                             </li>
-
+                        <li class="nav-item @@events">
+                            <a class="nav-link" href="events.html">Admin Tools</a>
+                        </li>
                                 <partial name="_LoginPartial" />
 
                         </ul>
@@ -116,52 +116,12 @@
                 <div class="row">
                     <div class="col-lg-4 col-sm-8 mb-5 mb-lg-0">
                         <!-- logo -->
-                        <a class="logo-footer" asp-controller="Home" asp-action="Index"><img class="img-fluid mb-4" style="color:white;" src="~/images/logo.png" alt="logo"><i><b>fag el'gamous</b></i></a>
-                        <ul class="list-unstyled">
-                            <li class="mb-2">23621 15 Mile Rd #C104, Clinton MI, 48035, New York, USA</li>
-                            <li class="mb-2">+1 (2) 345 6789</li>
-                            <li class="mb-2">+1 (2) 345 6789</li>
-                            <li class="mb-2">contact@yourdomain.com</li>
-                        </ul>
-                    </div>
-                    <!-- company -->
-                    <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
-                        <h4 class="text-white mb-5">About us</h4>
+                        <a class="logo-footer" asp-controller="Home" asp-action="Index" style="color:white;"><img class="img-fluid mb-4" style="color:white;" src="~/images/logo.png" alt="logo"><i><b>fag el'gamous</b></i></a>
                         <ul class="list-unstyled">
                             <li class="mb-3"><a class="text-color" asp-controller="Home" asp-action="Privacy">Privacy Policy</a></li>
                             <li class="mb-3"><a class="text-color" href="teacher.html">Our Teacher</a></li>
                             <li class="mb-3"><a class="text-color" href="contact.html">Contact</a></li>
                             <li class="mb-3"><a class="text-color" href="blog.html">Blog</a></li>
-                        </ul>
-                    </div>
-                    <!-- links -->
-                    <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
-                        <h4 class="text-white mb-5">LINKS</h4>
-                        <ul class="list-unstyled">
-                            <li class="mb-3"><a class="text-color" href="courses.html">Courses</a></li>
-                            <li class="mb-3"><a class="text-color" href="events.html">Events</a></li>
-                            <li class="mb-3"><a class="text-color" href="notice.html">Notice</a></li>
-                            <li class="mb-3"><a class="text-color" href="scholarship.html">Scholarship</a></li>
-                        </ul>
-                    </div>
-                    <!-- support -->
-                    <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
-                        <h4 class="text-white mb-5">SUPPORT</h4>
-                        <ul class="list-unstyled">
-                            <li class="mb-3"><a class="text-color" href="https://themefisher.com/blog">Forums</a></li>
-                            <li class="mb-3"><a class="text-color" href="https://docs.themefisher.com/">Documentation</a></li>
-                            <li class="mb-3"><a class="text-color" href="#!">Language</a></li>
-                            <li class="mb-3"><a class="text-color" href="#!">Release Status</a></li>
-                        </ul>
-                    </div>
-                    <!-- support -->
-                    <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
-                        <h4 class="text-white mb-5">RECOMMEND</h4>
-                        <ul class="list-unstyled">
-                            <li class="mb-3"><a class="text-color" href="https://themefisher.com/">WordPress</a></li>
-                            <li class="mb-3"><a class="text-color" href="https://themefisher.com/">LearnPress</a></li>
-                            <li class="mb-3"><a class="text-color" href="https://themefisher.com/">WooCommerce</a></li>
-                            <li class="mb-3"><a class="text-color" href="https://themefisher.com/">bbPress</a></li>
                         </ul>
                     </div>
                 </div>

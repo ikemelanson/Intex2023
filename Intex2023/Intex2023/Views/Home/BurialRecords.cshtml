@@ -27,18 +27,20 @@
         <!-- course list -->
         <div class="row justify-content-center">
             
-            @foreach (Burial b in Model.Burials)
+            @foreach (Burial b in Model.burialmain)
             {
                 <partial name="BurialSummary" model="b" />
 
             }
-            <div page-blah="@Model.PageInfo" page-action="Index" page-classes-enabled="true"
-                 page-class="btn" page-class-normal="btn-outline-dark"
-                 page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
+            
 
 
         </div>
         <!-- /course list -->
+        <div page-blah="@Model.PageInfo" page-action="BurialRecords" page-classes-enabled="true"
+             page-class="btn" page-class-normal="btn-outline-dark"
+             page-class-selected="btn-primary" class="row justify-content-center"></div>
     </div>
+
 </section>
 <!-- /courses -->
