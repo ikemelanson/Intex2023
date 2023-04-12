@@ -20,6 +20,9 @@ namespace Intex2023.Controllers
 
         public IActionResult BurialRecords(string burialhaircolor, int pageNum = 1)
         {
+            //var filterOptions = new List<string> { "Option 1", "Option 2", "Option 3" };
+            //ViewBag.FilterOptions = filterOptions;
+
             int pageSize = 15;
 
             var x = new BurialsViewModel
