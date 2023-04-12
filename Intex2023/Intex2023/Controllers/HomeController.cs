@@ -24,7 +24,7 @@ namespace Intex2023.Controllers
 
             var x = new BurialsViewModel
             {
-                burialmain = repo.Burials
+                burialmain = repo.burialmain
                 .Where(b => b.haircolor == burialhaircolor || burialhaircolor == null)
                 //.OrderBy(b => b.Title)
                 .Skip((pageNum - 1) * pageSize)
@@ -33,7 +33,7 @@ namespace Intex2023.Controllers
                 PageInfo = new PageInfo
                 {
                     TotalNumRecords =
-                        (burialhaircolor == null ? repo.Burials.Count() : repo.Burials.Where(x => x.haircolor == burialhaircolor).Count()),
+                        (burialhaircolor == null ? repo.burialmain.Count() : repo.burialmain.Where(x => x.haircolor == burialhaircolor).Count()),
                     BurialsPerPage = pageSize,
                     CurrentPage = pageNum
                 }

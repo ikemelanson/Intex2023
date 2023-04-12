@@ -12,6 +12,6 @@ namespace Intex2023.Models
         {
             context = temp;
         }
-        public IQueryable<Burial> Burials => context.burialmain;
+        public IQueryable<Burial> burialmain => context.burialmain;
     }
 }

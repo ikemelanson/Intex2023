@@ -11,15 +11,21 @@
     <div class="card p-0 border-primary rounded-0 hover-shadow">
         <div class="card-body">
             <ul class="list-inline mb-2">
-                <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>Date: </li>
-                <li class="list-inline-item"><a class="text-color" href="course-single.html">Hair color:@Model.haircolor</a></li>
+                <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>Year: @Model.fieldbookexcavationyear</li>
+            </ul>
+            <ul class="list-inline mb-2">
+                <li class="list-inline-item">Sex: @Model.sex</li>
+            </ul>
+            <ul class="list-inline mb-2">
+                <li class="list-inline-item">Depth: @Model.depth</li>
+            </ul>
+            <ul class="list-inline mb-2">
+                <li class="list-inline-item">Head Direction: @Model.headdirection</li>
             </ul>
             <a href="course-single.html">
                 <h4 class="card-title">ID: @Model.id</h4>
             </a>
-            <p class="card-text mb-4">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna.
+            <p class="card-text mb-4">Description: @Model.text
             </p>
             <a href="course-single.html" class="btn btn-primary btn-sm">Edit</a>
             <a href="course-single.html" class="btn btn-primary btn-sm">Delete</a>

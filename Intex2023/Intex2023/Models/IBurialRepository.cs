@@ -7,6 +7,6 @@ namespace Intex2023.Models
 {
     public interface IBurialRepository
     {
-        IQueryable<Burial> Burials { get; }
+        IQueryable<Burial> burialmain { get; }
     }
 }
