@@ -18,22 +18,22 @@ namespace Intex2023.Controllers
             return View();
         }
 
-        public IActionResult BurialRecords(string burialCategory, int pageNum = 1)
+        public IActionResult BurialRecords(string burialhaircolor, int pageNum = 1)
         {
             int pageSize = 10;
 
             var x = new BurialsViewModel
             {
                 Burials = repo.Burials
-                .Where(b => b.Category == burialCategory || burialCategory == null)
-                .OrderBy(b => b.Title)
+                .Where(b => b.haircolor == burialhaircolor || burialhaircolor == null)
+                //.OrderBy(b => b.Title)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 
                 PageInfo = new PageInfo
                 {
                     TotalNumRecords =
-                        (burialCategory == null ? repo.Burials.Count() : repo.Burials.Where(x => x.Category == burialCategory).Count()),
+                        (burialhaircolor == null ? repo.Burials.Count() : repo.Burials.Where(x => x.haircolor == burialhaircolor).Count()),
                     BurialsPerPage = pageSize,
                     CurrentPage = pageNum
                 }
