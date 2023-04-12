@@ -45,15 +45,15 @@ namespace Intex2023.Controllers
 
             return View(x);
         }
+        public IActionResult IndividualBurial()
+        {
+            return View();
+        }
         public IActionResult Supervised()
         {
             return View();
         }
         public IActionResult Unsupervised()
-        {
-            return View();
-        }
-        public IActionResult Tech()
         {
             return View();
         }
