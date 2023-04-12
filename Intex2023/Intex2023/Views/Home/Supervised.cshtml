@@ -3,6 +3,63 @@
 *@
 @{
 }
+
+
+<script>async function calcPrediction() {
+        const squarenorthsouth = document.getElementById("squarenorthsouth").value;
+        const depth = document.getElementById("depth").value;
+        const westtohead = document.getElementById("westtohead").value;
+        const westtofeet = document.getElementById("westtofeet").value;
+        const sex = document.getElementById("sex").value;
+        const eastwest = document.getElementById("eastwest").value;
+        const adultsubadult = document.getElementById("adultsubadult").value;
+        const ageatdeath = document.getElementById("ageatdeath").value;
+
+        let dictionaryForm = {};
+
+        dictionaryForm.squarenorthsouth = squarenorthsouth || 0;
+        dictionaryForm.depth = depth || 0;
+        dictionaryForm.westtohead = westtohead || 0;
+        dictionaryForm.westtofeet = westtofeet || 0;
+
+        dictionaryForm.sex_M = sex == "M" ? 1 : 0;
+        dictionaryForm.sex_Unknown = sex == "U" ? 1 : 0;
+
+        dictionaryForm.eastwest_W = eastwest == "W" ? 1 : 0;
+
+        dictionaryForm.adultsubadult_A = adultsubadult == "A" ? 1 : 0;
+        dictionaryForm.adultsubadult_C = adultsubadult == "C" ? 1 : 0;
+
+        dictionaryForm.ageatdeath_A = ageatdeath == "A" ? 1 : 0;
+        dictionaryForm.ageatdeath_C = ageatdeath == "C" ? 1 : 0;
+        dictionaryForm.ageatdeath_I = ageatdeath == "I" ? 1 : 0;
+        dictionaryForm.ageatdeath_N = ageatdeath == "N" ? 1 : 0;
+
+        const jsonRequest = JSON.stringify(dictionaryForm);
+
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            body: jsonRequest,
+            redirect: "follow",
+        };
+
+        const response = await fetch(
+            "https://localhost:7098/score",
+            requestOptions
+        );
+
+    const data = await response.json();
+
+    prediction = data.predictedValue == 'E' ? "East" : "West"
+
+        document.getElementById("prediction").innerHTML = prediction;
+}
+    </script>
+
 <!-- page title -->
 <section class="page-title-section overlay bg-cover" style="background-image:url('https://i.postimg.cc/zDCcR2XN/hiero.jpg');">
     <div class="container">
@@ -28,11 +85,63 @@
         </div>
         <div class="row">
             <div class="col-lg-7 mb-4 mb-lg-0">
-                <form asp-action="IDKWHATTOPUTHERE" method="POST">
-                    <input type="text" class="form-control mb-3" id="name" name="name" placeholder="Osteology Info" required>
-                    <input type="email" class="form-control mb-3" id="mail" name="mail" placeholder="Burial Info" required>
-                    <button type="submit" value="send" class="btn btn-primary">Submit</button>
+                <form id="form">
+                    <label for="squarenorthsouth">Square North South</label>
+                    <input class="form-control" type="number" id="squarenorthsouth" />
+                    <br />
+
+                    <label for="depth">Depth</label>
+                    <input class="form-control" type="number" id="depth" />
+                    <br />
+
+                    <label for="westtohead">West To Head</label>
+                    <input class="form-control" type="number" id="westtohead" />
+                    <br />
+
+                    <label for="westtofeet">West To Feet</label>
+                    <input class="form-control" type="number" id="westtofeet" />
+                    <br />
+
+                    <label for="sex">Sex</label>
+                    <select class="form-control" id="sex">
+                        <option value="M">M</option>
+                        <option value="F">F</option>
+                        <option value="U">Unknown</option>
+                    </select>
+                    <br />
+
+                    <label for="eastwest">East or West</label>
+                    <select class="form-control" id="eastwest">
+                        <option value="E">East</option>
+                        <option value="W">West</option>
+                    </select>
+                    <br />
+
+                    <label for="adultsubadult">Developmental Stage</label>
+                    <select class="form-control" id="adultsubadult">
+                        <option value="A">Adult</option>
+                        <option value="C">Child</option>
+                        <option value="U">Unknown</option>
+                    </select>
+                    <br />
+
+                    <label for="ageatdeath">Age at Death</label>
+                    <select class="form-control" id="ageatdeath">
+                        <option value="A">Adult</option>
+                        <option value="C">Child</option>
+                        <option value="I">Infant</option>
+                        <option value="N">Newborn</option>
+                        <option value="U">Unknown</option>
+                    </select>
+                    <br />
+
+                    <button type="button" class="btn btn-primary" onclick="calcPrediction()">Submit</button>
                 </form>
+
+                <br />
+                <h4>We predict the body is facing:</h4>
+                <br />
+                <h3 id="prediction"></h3>
             </div>
             <div class="col-lg-5">
                 <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit recusandae voluptates doloremque veniam temporibus porro culpa ipsa, nisi soluta minima saepe laboriosam debitis nesciunt. Dolore, labore. Accusamus nulla sed cum aliquid exercitationem debitis error harum porro maxime quo iusto aliquam dicta modi earum fugiat, vel possimus commodi, deleniti et veniam, fuga ipsum praesentium. Odit unde optio nulla ipsum quae obcaecati! Quod esse natus quibusdam asperiores quam vel, tempore itaque architecto ducimus expedita</p>
@@ -42,5 +151,6 @@
             </div>
         </div>
     </div>
+
 </section>
 <!-- /contact -->
