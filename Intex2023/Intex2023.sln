@@ -5,8 +5,6 @@ VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intex2023", "Intex2023\Intex2023.csproj", "{452A83C6-5D14-41F5-B5D8-1C875C35FBC0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityManagerUI", "..\..\..\..\Downloads\IdentityManagerUI-master - duplicate\IdentityManagerUI-master\IdentityManagerUI\IdentityManagerUI.csproj", "{EA7FE858-167E-4287-8055-69EF405634F6}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{452A83C6-5D14-41F5-B5D8-1C875C35FBC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{452A83C6-5D14-41F5-B5D8-1C875C35FBC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{452A83C6-5D14-41F5-B5D8-1C875C35FBC0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EA7FE858-167E-4287-8055-69EF405634F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EA7FE858-167E-4287-8055-69EF405634F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EA7FE858-167E-4287-8055-69EF405634F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EA7FE858-167E-4287-8055-69EF405634F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
