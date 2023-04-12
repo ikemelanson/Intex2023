@@ -3,18 +3,6 @@
 @{
     ViewData["Title"] = "Register";
 }
-<section class="page-title-section overlay bg-cover" style="background-image:url('https://i.postimg.cc/VLrh7szq/hierogl.jpg');">
-    <div class="container">
-        <div class="row" style="background: #FFCD6E; opacity:0.9;">
-            <div class="col-md-8">
-                <ul class="list-inline mb-2">
-                    <li class="list-inline-item text-white h3 font-secondary nasted">Register</li>
-                </ul>
-                <p class="text-white mb-0">Our courses offer a good compromise between the continuous assessment favoured by some universities and the emphasis placed on final exams by others.</p>
-            </div>
-        </div>
-    </div>
-</section>
 <section class="section bg-gray">
     <div class="container">
         <div class="row">
@@ -25,7 +13,7 @@
         <div class="row">
             <div class="col-lg-7 mb-4 mb-lg-0">
                 <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-                    <h4>Create a new account.</h4>
+                    <h4>Create a new account by entering your personal information.</h4>
                     <hr />
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input asp-for="Input.Email" class="form-control mb-3" aria-required="true" name="Email" placeholder="Email" />
@@ -40,7 +28,7 @@
                     <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
                 </form>
             </div>
-            <div class="col-lg-5">
+            @*<div class="col-lg-5">
                 <section>
                     <h3>Use another service to register.</h3>
                     <hr />
@@ -67,7 +55,7 @@
                 }
             }
                 </section>
-            </div>
+            </div>*@
         </div>
     </div>
 </section>
