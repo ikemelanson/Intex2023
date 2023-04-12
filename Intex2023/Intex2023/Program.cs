@@ -4,7 +4,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+<<<<<<< HEAD
 
+=======
+>>>>>>> c30aa5b (take out merge conflict markers)
 var connectionString = builder.Configuration.GetConnectionString("ApplicationDbContextConnection");
 
 // Add services to the container.
