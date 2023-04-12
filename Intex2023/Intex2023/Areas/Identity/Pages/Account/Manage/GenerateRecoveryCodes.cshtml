@@ -4,6 +4,7 @@
     ViewData["Title"] = "Generate two-factor authentication (2FA) recovery codes";
     ViewData["ActivePage"] = ManageNavPages.TwoFactorAuthentication;
 }
+<div class="col-lg-9 mb-4 mb-lg-0">
 
 <partial name="_StatusMessage" for="StatusMessage" />
 <h3>@ViewData["Title"]</h3>
@@ -23,5 +24,7 @@
 <div>
     <form method="post">
         <button class="btn btn-danger" type="submit">Generate Recovery Codes</button>
+        <hr />
     </form>
+</div>
 </div>

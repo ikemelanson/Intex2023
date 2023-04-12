@@ -7,7 +7,9 @@
 
 <partial name="_StatusMessage" for="StatusMessage" />
 <h3>@ViewData["Title"]</h3>
-<div>
+<div class="col-lg-9 mb-4 mb-lg-0">
+
+        <div class="row">
     <p>To use an authenticator app go through the following steps:</p>
     <ol class="list">
         <li>
@@ -35,19 +37,19 @@
                 <div class="col-md-6">
                     <form id="send-code" method="post">
                         <div class="form-floating mb-3">
-                            <input asp-for="Input.Code" class="form-control" autocomplete="off" placeholder="Please enter the code." />
-                            <label asp-for="Input.Code" class="control-label form-label">Verification Code</label>
+                            <input asp-for="Input.Code" class="form-control" autocomplete="off" placeholder="Please enter the verification code." />
                             <span asp-validation-for="Input.Code" class="text-danger"></span>
                         </div>
                         <button type="submit" class="w-100 btn btn-lg btn-primary">Verify</button>
                         <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                        <hr />
                     </form>
                 </div>
             </div>
         </li>
     </ol>
 </div>
-
+</div>
 @*This is what enables the qr code for two factor authentication*@
 
 @section Scripts {

@@ -100,11 +100,7 @@
         </div>
 
     <!-- navbar end -->
-
-    <!--Here is what I was changing to make the notification to tell the user to enable the MFA -->
-    <div id="MFAcheck" onclick="">
-        <p>Make sure to enable multifactor authentication <a href="/Identity/Account/Manage/TwoFactorAuthentication">here</a> so your account is safe!</p>
-    </div>
+    <partial name="_MultiPartial" />
     <body>
         @RenderBody()
         <partial name="_CookieConsentPartial" />
