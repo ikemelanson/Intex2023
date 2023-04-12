@@ -8,12 +8,12 @@
 
 <div class="d-grid gap-2">
 
-    <a asp-controller="Home" asp-action="Index" asp-route-bookCategory="" asp-route-pageNum="1" class="btn btn-outline-secondary">Home</a>
+    <a asp-controller="Home" asp-action="Index" asp-route-burialhaircolor="" asp-route-pageNum="1" class="btn btn-outline-secondary">Home</a>
 
     <br /><br />
     @foreach (string t in Model)
     {
-        <a asp-controller="Home" asp-action="Index" asp-route-bookCategory="@t" asp-route-pageNum="1"
+        <a asp-controller="Home" asp-action="Index" asp-route-burialhaircolor="@t" asp-route-pageNum="1"
            class="btn @(ViewBag.SelectedType == t ? "btn-primary" : "btn-outline-secondary")">@t</a>
         <br />
 
