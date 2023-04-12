@@ -35,7 +35,7 @@
                 <div class="col-md-6">
                     <form id="send-code" method="post">
                         <div class="form-floating mb-3">
-                            <input asp-for="Input.Code" class="form-control" autocomplete="off" placeholder="Please enter the code."/>
+                            <input asp-for="Input.Code" class="form-control" autocomplete="off" placeholder="Please enter the code." />
                             <label asp-for="Input.Code" class="control-label form-label">Verification Code</label>
                             <span asp-validation-for="Input.Code" class="text-danger"></span>
                         </div>
@@ -48,6 +48,18 @@
     </ol>
 </div>
 
+@*This is what enables the qr code for two factor authentication*@
+
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script src="~/lib/qrcode/qrcode.min.js"></script>
+    <script type="text/javascript">
+        new QRCode(document.getElementById("qrCode"),
+         {
+             text: "@Html.Raw(Model.AuthenticatorUri)",
+             width: 400,
+             height: 400
+         });
+    </script>
+
 }

@@ -4,6 +4,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+<<<<<<< HEAD
+=======
+var connectionString = builder.Configuration.GetConnectionString("ApplicationDbContextConnection");
+>>>>>>> 4ef7bd9 (Added MFA, added qr to authenticate)
 
 // Add services to the container.
 var loginConnectionString = builder.Configuration["ConnectionStrings:LoginConnection"];
