@@ -80,22 +80,20 @@ app.Use(async (context, next) =>
 });
 
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller}/{action}",
+    name: "categorypage",
+    pattern: "{burialhaircolor}/Page{pageNum}",
     defaults: new { controller = "Home", action = "Index" });
-
-//app.MapControllerRoute(
-//    name: "categorypage",
-//    pattern: "{burialCategory}/Page{pageNum}",
-//    defaults: new { controller = "Home", action = "Index" });
-//app.MapControllerRoute(
-//    name: "paging",
-//    pattern: "Page{pageNum}",
-//    defaults: new { controller = "Home", action = "Index", pageNum = 1});
-//app.MapControllerRoute(
-//    name: "category",
-//    pattern: "{burialCategory}",
-//    defaults: new { controller = "Home", action = "Index", pageNum = 1 });
+app.MapControllerRoute(
+    name: "paging",
+    pattern: "Page{pageNum}",
+    defaults: new { controller = "Home", action = "Index", pageNum = 1});
+app.MapControllerRoute(
+    name: "category",
+    pattern: "{burialhaircolor}",
+    defaults: new { controller = "Home", action = "Index", pageNum = 1 });
+app.MapControllerRoute(
+    name: "normal/default",
+    pattern: "{controller=Home}/{action=Index}");
 app.MapRazorPages();
 
 

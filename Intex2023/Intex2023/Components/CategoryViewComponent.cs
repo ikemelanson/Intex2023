@@ -17,9 +17,9 @@ namespace Intex2023.Components
         }
         public IViewComponentResult Invoke()
         {
-            ViewBag.SelectedType = RouteData?.Values["burialCategory"];
+            ViewBag.SelectedType = RouteData?.Values["burialhaircolor"];
             var cats = repo.Burials
-                .Select(x => x.Category)
+                .Select(x => x.haircolor)
                 .Distinct()
                 .OrderBy(x => x);
 
