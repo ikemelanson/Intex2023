@@ -19,7 +19,7 @@ namespace Intex2023.Models
         {
         }
 
-        public DbSet<Burial> Burials { get; set; }
+        public DbSet<Burial> burialmain { get; set; }
 
     }
 }
