@@ -85,11 +85,17 @@
                                     <li><a class="dropdown-item" asp-controller="Home" asp-action="Unsupervised">Unsupervised</a></li>
                                 </ul>
                             </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="events.html">Admin Tools</a>
-                        </li>
-                                <partial name="_LoginPartial" />
-
+                            <li class="nav-item dropdown view">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Admin Tools
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" asp-area="IdentityManager" asp-controller="Home" asp-action="Roles">Roles</a></li>
+                                    <li><a class="dropdown-item" asp-area="IdentityManager" asp-controller="Home" asp-action="Users">Users</a></li>
+                                </ul>
+                            </li>
+                             
+                            <partial name="_LoginPartial" />
                         </ul>
                     </div>
                 </nav>
