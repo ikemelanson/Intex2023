@@ -1,6 +1,11 @@
 ﻿@{ ViewData["Title"] = "Delete Mummy";
 }
 @model Burial
+
+<section class="section bg-gray">
+
+    <div class="container">
+        <div class="row">
 <h2>Confirm Deletion</h2>
 <h3>Are you sure you want to delete the record for @Model.id</h3>
 <form method="post" asp-controller="Home" asp-action="Delete">
@@ -8,3 +13,7 @@
     <a asp-controller="Home" asp-action="BurialRecords" class="btn btn-primary">Cancel</a>
     <input type="hidden" asp-for="id" />
 </form>
+
+</div>
+</div>
+</section>
