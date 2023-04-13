@@ -4,6 +4,7 @@ using Intex2023.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.ML.OnnxRuntime;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("ApplicationDbContextConnection");
@@ -45,6 +46,11 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequiredLength = 13;
     options.Password.RequiredUniqueChars = 7;
 });
+
+builder.Services.AddSingleton<InferenceSession>(
+  new InferenceSession("wwwroot/supervised.onnx")
+);//
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -71,17 +77,17 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-//app.Use(async (context, next) =>
-//{
-//    context.Response.Headers.Add("Content-Security-Policy", "default-src 'self'; " +
-//        "connect-src 'self' 'unsafe-inline' https://maps.googleapis.com/maps/api/mapsjs/gen_204?csp_test=true wss://localhost:44356/Intex2023/; " +
-//        "script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://maps.googleapis.com https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js; " +
-//        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
-//        "font-src 'self' data: https://fonts.gstatic.com; " +
-//        "img-src 'self' data: https://www.google-analytics.com https://maps.gstatic.com https://maps.googleapis.com https://i.postimg.cc/ht2drfw6/gamuoshill.jpg https://i.postimg.cc/VLrh7szq/hierogl.jpg https://i.postimg.cc/zDCcR2XN/hiero.jpg; " +
-//        "frame-src 'self' https://www.google.com https://www.google.com/maps");
-//    await next();
-//});
+app.Use(async (context, next) =>
+{
+    context.Response.Headers.Add("Content-Security-Policy", "default-src 'self'; " +
+        "connect-src 'self' 'unsafe-inline' https://maps.googleapis.com/maps/api/mapsjs/gen_204?csp_test=true wss://localhost:44356/Intex2023/; " +
+        "script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://maps.googleapis.com https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js; " +
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
+        "font-src 'self' data: https://fonts.gstatic.com; " +
+        "img-src 'self' data: https://www.google-analytics.com https://maps.gstatic.com https://maps.googleapis.com https://i.postimg.cc/ht2drfw6/gamuoshill.jpg https://i.postimg.cc/VLrh7szq/hierogl.jpg https://i.postimg.cc/zDCcR2XN/hiero.jpg; " +
+        "frame-src 'self' https://www.google.com https://www.google.com/maps");
+    await next();
+});
 
 
 //app.MapControllerRoute(
