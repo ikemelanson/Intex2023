@@ -7,7 +7,7 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-<li class="nav-item">
+    <li class="nav-item">
         <a  class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage User Settings">User Info</a>
     </li>
 
@@ -29,4 +29,13 @@ else
     </li>
 
 }
+@*@{
+    var user = UserManager.Users.FirstOrDefault(x => x.Id == UserManager.GetUserId(User));
+}
 
+@if (await UserManager.IsInRoleAsync( user , "Admin"))
+{
+    <li class="nav-item">
+        <a class="nav-link" asp-area="Identity" asp-page="/Account/Logout">Hello</a>
+    </li>
+}*@
