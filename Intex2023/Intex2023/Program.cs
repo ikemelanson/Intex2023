@@ -89,10 +89,6 @@ app.Use(async (context, next) =>
     await next();
 });
 
-
-app.MapControllerRoute(
-    name: "roles/users",
-    pattern: "{area:exists}/{controller=Home}/{action=Roles}");
 app.MapControllerRoute(
 name: "category",
     pattern: "{burialhaircolor}",
@@ -118,7 +114,11 @@ app.MapControllerRoute(
     pattern: "{northsouth}/Page{pageNum}/EastWest{eastwest}/{headdirection}",
     defaults: new { controller = "Home", action = "BurialRecords", pageNum = 1 });
 app.MapControllerRoute(
-    name: "normal/default",
+    name: "users",
+    pattern: "{area:exists}/{controller=Home}/{action}",
+    defaults: new { area = "" });
+app.MapControllerRoute(
+    name: "default",
     pattern: "{controller=Home}/{action=Index}");
 app.MapRazorPages();
 
