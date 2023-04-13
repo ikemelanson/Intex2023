@@ -4,7 +4,8 @@
 @{
 }
 
-@model IQueryable<Burial>
+@model Burial
+
 
 <!-- page title -->
 <section class="page-title-section overlay bg-cover" style="background-image:url('https://i.postimg.cc/VLrh7szq/hierogl.jpg');">
@@ -23,9 +24,6 @@
 <!-- /page title -->
 <!-- section -->
 
-@foreach (Burial x in Model)
-    {
-
     <section>
         <div class="container">
             <div class="row">
@@ -43,7 +41,7 @@
                             <div class="d-flex align-items-center">
                                 <div class="text-left">
                                     <h6 class="mb-0">DEPTH</h6>
-                                    <p class="mb-0">@(String.IsNullOrEmpty(x.depth) ? "No Data" : x.depth + 'm')</p>
+                                    <p class="mb-0">@(String.IsNullOrEmpty(Model.depth) ? "No Data" : Model.depth + 'm')</p>
                                 </div>
                             </div>
                         </li>
@@ -51,7 +49,7 @@
                             <div class="d-flex align-items-center">
                                 <div class="text-left">
                                     <h6 class="mb-0">HEAD DIRECTION</h6>
-                                    <p class="mb-0">@(String.IsNullOrEmpty(x.headdirection) ? "No Data" : x.headdirection)</p>
+                                    <p class="mb-0">@(String.IsNullOrEmpty(Model.headdirection) ? "No Data" : Model.headdirection)</p>
                                 </div>
                             </div>
                         </li>
@@ -59,7 +57,7 @@
                             <div class="d-flex align-items-center">
                                 <div class="text-left">
                                     <h6 class="mb-0">Age At Death</h6>
-                                    <p class="mb-0">@(String.IsNullOrEmpty(x.ageatdeath) ? "No Data" : x.ageatdeath)</p>
+                                <p class="mb-0">@(String.IsNullOrEmpty(Model.ageatdeath) ? "No Data" : Model.ageatdeath)</p>
                                 </div>
                             </div>
                         </li>
@@ -67,7 +65,7 @@
                             <div class="d-flex align-items-center">
                                 <div class="text-left">
                                     <h6 class="mb-0">EXCAVATION DATE</h6>
-                                    <p class="mb-0">@(String.IsNullOrEmpty(x.dateofexcavation) ? "No Data" : x.dateofexcavation)</p>
+                                <p class="mb-0">@(String.IsNullOrEmpty(Model.dateofexcavation) ? "No Data" : Model.dateofexcavation)</p>
                                 </div>
                             </div>
                         </li>
@@ -75,7 +73,7 @@
                             <div class="d-flex align-items-center">
                                 <div class="text-left">
                                     <h6 class="mb-0">EXPERT INITIALS</h6>
-                                    <p class="mb-0">@(String.IsNullOrEmpty(x.dataexpertinitials) ? "No Data" : x.dataexpertinitials)</p>
+                                <p class="mb-0">@(String.IsNullOrEmpty(Model.dataexpertinitials) ? "No Data" : Model.dataexpertinitials)</p>
                                 </div>
                             </div>
                         </li>
@@ -83,7 +81,7 @@
                             <div class="d-flex align-items-center">
                                 <div class="text-left">
                                     <h6 class="mb-0">SEX</h6>
-                                    <p class="mb-0">@(String.IsNullOrEmpty(x.sex) ? "No Data" : x.sex)</p>
+                                <p class="mb-0">@(String.IsNullOrEmpty(Model.sex) ? "No Data" : Model.sex)</p>
                                 </div>
                             </div>
                         </li>
@@ -107,7 +105,7 @@
                 <div class="col-12 mb-4">
                     <h3>Mummy Description</h3>
                     <p>
-                        @(String.IsNullOrEmpty(x.text) ? "No description for this mummy" : x.text)
+                    @(String.IsNullOrEmpty(Model.text) ? "No description for this mummy" : Model.text)
                     </p>
                 </div>
                 <div class="col-12 mb-4">
@@ -116,19 +114,19 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <ul class="list-styled">
-                                    <li>Square North South: @(String.IsNullOrEmpty(x.squarenorthsouth) ? "No Data" : x.squarenorthsouth)</li>
-                                    <li>Square East West: @(String.IsNullOrEmpty(x.squareeastwest) ? "No Data" : x.squareeastwest)</li>
-                                    <li>North South: @(String.IsNullOrEmpty(x.northsouth) ? "No Data" : x.northsouth)</li>
-                                    <li>East West: @(String.IsNullOrEmpty(x.eastwest) ? "No Data" : x.eastwest)</li>
+                                <li>Square North South: @(String.IsNullOrEmpty(Model.squarenorthsouth) ? "No Data" : Model.squarenorthsouth)</li>
+                                <li>Square East West: @(String.IsNullOrEmpty(Model.squareeastwest) ? "No Data" : Model.squareeastwest)</li>
+                                <li>North South: @(String.IsNullOrEmpty(Model.northsouth) ? "No Data" : Model.northsouth)</li>
+                                <li>East West: @(String.IsNullOrEmpty(Model.eastwest) ? "No Data" : Model.eastwest)</li>
                                 </ul>
                             </div>
                             <div class="col-md-6">
                                 <ul class="list-styled">
-                                    <li>Shaft Number: @(String.IsNullOrEmpty(x.shaftnumber) ? "No Data" : x.shaftnumber)</li>
-                                    <li>Cluster Number: @(String.IsNullOrEmpty(x.clusternumber) ? "No Data" : x.clusternumber)</li>
-                                    <li>Samples Collected: @(String.IsNullOrEmpty(x.samplescollected) ? "No Data" : x.samplescollected)</li>
-                                    <li>Area: @(String.IsNullOrEmpty(x.area) ? "No Data" : x.area)</li>
-                                    <li>Burial ID: @(x.burialid == null ? "No Data" : x.burialid)</li>
+                                <li>Shaft Number: @(String.IsNullOrEmpty(Model.shaftnumber) ? "No Data" : Model.shaftnumber)</li>
+                                <li>Cluster Number: @(String.IsNullOrEmpty(Model.clusternumber) ? "No Data" : Model.clusternumber)</li>
+                                <li>Samples Collected: @(String.IsNullOrEmpty(Model.samplescollected) ? "No Data" : Model.samplescollected)</li>
+                                <li>Area: @(String.IsNullOrEmpty(Model.area) ? "No Data" : Model.area)</li>
+                                <li>Burial ID: @(Model.burialid == null ? "No Data" : Model.burialid)</li>
                                 </ul>
                             </div>
                         </div>
@@ -140,24 +138,24 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <ul class="list-styled">
-                                    <li>Developmental Stage: @(String.IsNullOrEmpty(x.adultsubadult) ? "No Data" : x.adultsubadult)</li>
-                                    <li>Face Bundles: @(String.IsNullOrEmpty(x.facebundles) ? "No Data" : x.facebundles)</li>
-                                    <li>Preservation: @(String.IsNullOrEmpty(x.preservation) ? "No Data" : x.preservation)</li>
-                                    <li>Wrapping: @(String.IsNullOrEmpty(x.wrapping) ? "No Data" : x.wrapping)</li>
-                                    <li>Field Book Page: @(String.IsNullOrEmpty(x.fieldbookpage) ? "No Data" : x.fieldbookpage)</li>
-                                    <li>Goods: @(String.IsNullOrEmpty(x.goods) ? "No Data" : x.goods)</li>
-                                    <li>Excavation Recorder: @(String.IsNullOrEmpty(x.excavationrecorder) ? "No Data" : x.excavationrecorder)</li>
+                                <li>Developmental Stage: @(String.IsNullOrEmpty(Model.adultsubadult) ? "No Data" : Model.adultsubadult)</li>
+                                <li>Face Bundles: @(String.IsNullOrEmpty(Model.facebundles) ? "No Data" : Model.facebundles)</li>
+                                <li>Preservation: @(String.IsNullOrEmpty(Model.preservation) ? "No Data" : Model.preservation)</li>
+                                <li>Wrapping: @(String.IsNullOrEmpty(Model.wrapping) ? "No Data" : Model.wrapping)</li>
+                                <li>Field Book Page: @(String.IsNullOrEmpty(Model.fieldbookpage) ? "No Data" : Model.fieldbookpage)</li>
+                                <li>Goods: @(String.IsNullOrEmpty(Model.goods) ? "No Data" : Model.goods)</li>
+                                <li>Excavation Recorder: @(String.IsNullOrEmpty(Model.excavationrecorder) ? "No Data" : Model.excavationrecorder)</li>
                                 </ul>
                             </div>
                             <div class="col-md-6">
                                 <ul class="list-styled">
-                                    <li>Hair: @(String.IsNullOrEmpty(x.hair) ? "No Data" : x.hair)</li>
-                                    <li>Hair Color: @(String.IsNullOrEmpty(x.hair) ? "No Data" : x.haircolor)</li>
-                                    <li>Burial Materials: @(String.IsNullOrEmpty(x.burialmaterials) ? "No Data" : x.burialmaterials)</li>
-                                    <li>South to Feet: @(String.IsNullOrEmpty(x.southtofeet) ? "No Data" : x.southtofeet)</li>
-                                    <li>West to Feet: @(String.IsNullOrEmpty(x.westtofeet) ? "No Data" : x.westtofeet)</li>
-                                    <li>South to Head: @(String.IsNullOrEmpty(x.southtohead) ? "No Data" : x.southtohead)</li>
-                                    <li>West to Head: @(String.IsNullOrEmpty(x.westtohead) ? "No Data" : x.westtohead)</li>
+                                <li>Hair: @(String.IsNullOrEmpty(Model.hair) ? "No Data" : Model.hair)</li>
+                                <li>Hair Color: @(String.IsNullOrEmpty(Model.hair) ? "No Data" : Model.haircolor)</li>
+                                <li>Burial Materials: @(String.IsNullOrEmpty(Model.burialmaterials) ? "No Data" : Model.burialmaterials)</li>
+                                <li>South to Feet: @(String.IsNullOrEmpty(Model.southtofeet) ? "No Data" : Model.southtofeet)</li>
+                                <li>West to Feet: @(String.IsNullOrEmpty(Model.westtofeet) ? "No Data" : Model.westtofeet)</li>
+                                <li>South to Head: @(String.IsNullOrEmpty(Model.southtohead) ? "No Data" : Model.southtohead)</li>
+                                <li>West to Head: @(String.IsNullOrEmpty(Model.westtohead) ? "No Data" : Model.westtohead)</li>
                                 </ul>
                             </div>
                         </div>
@@ -166,4 +164,3 @@
             </div>
         </div>
     </section>
-         }
