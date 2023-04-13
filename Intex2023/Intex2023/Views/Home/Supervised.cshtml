@@ -5,7 +5,19 @@
 }
 
 
-<script>async function calcPrediction() {
+<script>
+    function noLetters(id) {
+
+        const element = document.getElementById(id).value;
+
+        if (element == '') {
+            document.getElementById(id).value = '';
+        }
+
+    }
+
+
+    async function calcPrediction() {
         const squarenorthsouth = document.getElementById("squarenorthsouth").value;
         const depth = document.getElementById("depth").value;
         const westtohead = document.getElementById("westtohead").value;
@@ -54,7 +66,7 @@
 
     const data = await response.json();
 
-    prediction = data.predictedValue == 'E' ? "East" : "West"
+        prediction = data.predictedValue == 'E' ? "East" : "West"
 
         document.getElementById("prediction").innerHTML = prediction;
 }
@@ -87,19 +99,19 @@
             <div class="col-lg-7 mb-4 mb-lg-0">
                 <form id="form">
                     <label for="squarenorthsouth">Square North South</label>
-                    <input class="form-control" type="number" id="squarenorthsouth" />
+                    <input class="form-control" type="number" id="squarenorthsouth" oninput="noLetters('squarenorthsouth')"/>
                     <br />
 
                     <label for="depth">Depth</label>
-                    <input class="form-control" type="number" id="depth" />
+                    <input class="form-control" type="number" id="depth" oninput="noLetters('depth')"/>
                     <br />
 
                     <label for="westtohead">West To Head</label>
-                    <input class="form-control" type="number" id="westtohead" />
+                    <input class="form-control" type="number" id="westtohead" oninput="noLetters('westtohead')"/>
                     <br />
 
                     <label for="westtofeet">West To Feet</label>
-                    <input class="form-control" type="number" id="westtofeet" />
+                    <input class="form-control" type="number" id="westtofeet"oninput="noLetters('westtofeet')"/>
                     <br />
 
                     <label for="sex">Sex</label>
