@@ -9,10 +9,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace Intex2023.Data.Migrations
+namespace Intex2023.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230411200551_Initial")]
+    [Migration("20230412185202_Initial")]
     partial class Initial
     {
         /// <inheritdoc />

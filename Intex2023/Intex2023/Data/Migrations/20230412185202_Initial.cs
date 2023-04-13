@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace Intex2023.Data.Migrations
+namespace Intex2023.Migrations
 {
     /// <inheritdoc />
     public partial class Initial : Migration
