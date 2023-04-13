@@ -7,10 +7,15 @@ namespace Intex2023.Controllers
 {
     public class HomeController : Controller
     {
+
+        private BurialContext context { get; set; }
+
         private IBurialRepository repo;
-        public HomeController(IBurialRepository temp)
+
+        public HomeController(IBurialRepository temp, BurialContext x)
         {
             repo = temp;
+            context = x;
         }
 
         public IActionResult Index()
@@ -49,10 +54,28 @@ namespace Intex2023.Controllers
 
             return View(x);
         }
-        public IActionResult IndividualBurial()
+
+
+        public IActionResult IndividualBurial(long id)
         {
-            return View();
+            //var data = new BurialsViewModel
+            //{
+            //    burialmain = repo.burialmain
+            //    .Where(x => x.id == id)
+            //};
+
+            //var data = repo.burialmain.Where(x => x.id == id).Take(1);
+
+            //var data = repo.burialmain.SingleOrDefault(x => x.id == id);
+
+            //var data = repo.burialmain.Where(x => x.id == id).FirstOrDefault();
+
+            var data = context.burialmain.First(x => x.id == id);
+
+            return View(data);
         }
+
+
         public IActionResult Supervised()
         {
             return View();

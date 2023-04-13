@@ -22,12 +22,10 @@
             <ul class="list-inline mb-2">
                 <li class="list-inline-item">Head Direction: @Model.headdirection</li>
             </ul>
-            <a href="course-single.html">
                 <h4 class="card-title">ID: @Model.id</h4>
-            </a>
             <p class="card-text mb-4">Description: @Model.text
             </p>
-            <a asp-controller="Home" asp-action="IndividualBurial" class="btn btn-primary btn-sm">View Record</a>
+            <a asp-controller="Home" asp-action="IndividualBurial" asp-route-id="@Model.id" class="btn btn-primary btn-sm">View Record</a>
 
         </div>
     </div>
