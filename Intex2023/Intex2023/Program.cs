@@ -49,7 +49,7 @@ builder.Services.Configure<IdentityOptions>(options =>
 
 builder.Services.AddSingleton<InferenceSession>(
   new InferenceSession("wwwroot/supervised.onnx")
-);
+);//
 
 var app = builder.Build();
 
