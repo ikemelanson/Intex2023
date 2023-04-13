@@ -3,107 +3,113 @@
     var nextId = ViewBag.NextId;
 }
 @model Burial
+<section class="section bg-gray">
+    <div class="container">
+        <div class="row">
+            <div>
+                <h1>Add a Record</h1>
 
-<h1>Add a Record</h1>
-<div>
     <form method="post">
         <div asp-validation-summary="All"></div>
 
         <label asp-for="depth">Depth:</label>
-        <input asp-for="depth" /><br />
+                    <input asp-for="depth" class="form-control mb-3" /><br />
 
         <label asp-for="headdirection">Head Direction: </label>
-        <input asp-for="headdirection" /><br />
+                    <input asp-for="headdirection" class="form-control mb-3" /><br />
 
         <label asp-for="ageatdeath">Age at death: </label>
-        <input asp-for="ageatdeath" /><br />
+                    <input asp-for="ageatdeath" class="form-control mb-3" /><br />
 
         <label asp-for="dateofexcavation">Date of excavation: </label>
-        <input asp-for="dateofexcavation" /><br />
+                    <input asp-for="dateofexcavation" class="form-control mb-3" /><br />
 
         <label asp-for="dataexpertinitials">Expert Initials: </label>
-        <input asp-for="dataexpertinitials" /><br />
+                    <input asp-for="dataexpertinitials" class="form-control mb-3" /><br />
 
         <label asp-for="sex">Sex: </label>
-        <select asp-for="sex">
+                    <select asp-for="sex" class="form-control mb-3">
             <option value="M">Male</option>
             <option value="F">Female</option>
             <option value="U">Unknown</option>
         </select><br /><br />
 
         <label asp-for="text">Description: </label>
-        <textarea asp-for="text"></textarea> <br />
+                    <textarea asp-for="text" class="form-control mb-3"></textarea> <br />
 
         <label asp-for="squarenorthsouth">Square North South: </label>
-        <input asp-for="squarenorthsouth" /><br />
+                    <input asp-for="squarenorthsouth" class="form-control mb-3" /><br />
 
         <label asp-for="squareeastwest">Square East West: </label>
-        <input asp-for="squareeastwest" /><br />
+                    <input asp-for="squareeastwest" class="form-control mb-3" /><br />
 
         <label asp-for="northsouth">North South: </label>
-        <input asp-for="northsouth" /><br />
+                    <input asp-for="northsouth" class="form-control mb-3" /><br />
 
         <label asp-for="eastwest">East West: </label>
-        <input asp-for="eastwest" /><br />
+                    <input asp-for="eastwest" class="form-control mb-3" /><br />
 
         <label asp-for="shaftnumber">Shaft Number: </label>
-        <input asp-for="shaftnumber" /><br />
+                    <input asp-for="shaftnumber" class="form-control mb-3" /><br />
 
         <label asp-for="clusternumber">Cluster Number: </label>
-        <input asp-for="clusternumber" /><br />
+                    <input asp-for="clusternumber" class="form-control mb-3" /><br />
 
         <label asp-for="samplescollected">Samples Collected: </label>
-        <input asp-for="samplescollected" /><br />
+                    <input asp-for="samplescollected" class="form-control mb-3" /><br />
 
         <label asp-for="area">Area: </label>
-        <input asp-for="area" /><br />
+                    <input asp-for="area" class="form-control mb-3" /><br />
 
         <label asp-for="burialid">Burial ID: </label>
-        <input asp-for="burialid" /><br />
+                    <input asp-for="burialid" class="form-control mb-3" /><br />
 
         <label asp-for="adultsubadult">Developmental Stage: </label>
-        <input asp-for="adultsubadult" /><br />
+                    <input asp-for="adultsubadult" class="form-control mb-3" /><br />
 
         <label asp-for="facebundles">Face bundels: </label>
-        <input asp-for="facebundles" /><br />
+                    <input asp-for="facebundles" class="form-control mb-3" /><br />
 
         <label asp-for="preservation">Preservation: </label>
-        <input asp-for="preservation" /><br />
+                    <input asp-for="preservation" class="form-control mb-3" /><br />
 
         <label asp-for="wrapping">Wrapping: </label>
-        <input asp-for="wrapping" /><br />
+                    <input asp-for="wrapping" class="form-control mb-3" /><br />
 
         <label asp-for="fieldbookpage">Field Book page: </label>
-        <input asp-for="fieldbookpage" /><br />
+                    <input asp-for="fieldbookpage" class="form-control mb-3" /><br />
 
         <label asp-for="goods">Goods: </label>
-        <input asp-for="goods" /><br />
+                    <input asp-for="goods" class="form-control mb-3" /><br />
 
         <label asp-for="excavationrecorder">Excavation Recorder: </label>
-        <input asp-for="excavationrecorder" /><br />
+                    <input asp-for="excavationrecorder" class="form-control mb-3" /><br />
 
         <label asp-for="hair">Hair: </label>
-        <input asp-for="hair" /><br />
+                    <input asp-for="hair" class="form-control mb-3" /><br />
 
         <label asp-for="haircolor">Hair Color: </label>
-        <input asp-for="haircolor" /><br />
+                    <input asp-for="haircolor" class="form-control mb-3" /><br />
 
         <label asp-for="burialmaterials">Burial Materials: </label>
-        <input asp-for="burialmaterials" /><br />
+                    <input asp-for="burialmaterials" class="form-control mb-3" /><br />
 
         <label asp-for="southtofeet">South to Feet: </label>
-        <input asp-for="southtofeet" /><br />
+                    <input asp-for="southtofeet" class="form-control mb-3" /><br />
 
         <label asp-for="westtofeet">West to Feet: </label>
-        <input asp-for="westtofeet" /><br />
+                    <input asp-for="westtofeet" class="form-control mb-3" /><br />
 
         <label asp-for="southtohead">South to Head: </label>
-        <input asp-for="southtohead" /><br />
+                    <input asp-for="southtohead" class="form-control mb-3" /><br />
 
         <label asp-for="westtohead">West to Head: </label>
-        <input asp-for="westtohead" /><br />
+                    <input asp-for="westtohead" class="form-control mb-3" /><br />
 
 
-        <button type="submit">Submit Application</button>
+        <button type="submit" class="btn btn-primary">Submit Application</button>
     </form>
-</div>
+            </div>
+        </div>
+    </div>
+</section>
