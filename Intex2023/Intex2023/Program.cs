@@ -4,6 +4,7 @@ using Intex2023.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.ML.OnnxRuntime;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("ApplicationDbContextConnection");
@@ -45,6 +46,11 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequiredLength = 13;
     options.Password.RequiredUniqueChars = 7;
 });
+
+builder.Services.AddSingleton<InferenceSession>(
+  new InferenceSession("wwwroot/supervised.onnx")
+);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
