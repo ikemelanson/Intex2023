@@ -2,6 +2,7 @@ using Intex2023.Data;
 using Intex2023.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.ML.OnnxRuntime;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("ApplicationDbContextConnection");
@@ -25,6 +26,11 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
     builder.Services.AddControllersWithViews();
 
+
+builder.Services.AddSingleton<InferenceSession>(
+  new InferenceSession("wwwroot/supervised.onnx")
+);
+
 builder.Services.Configure<CookiePolicyOptions>(options =>
 {
     options.CheckConsentNeeded = context => true;
@@ -42,6 +48,8 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequiredLength = 13;
     options.Password.RequiredUniqueChars = 7;
 });
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

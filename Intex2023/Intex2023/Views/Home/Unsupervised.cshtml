@@ -12,7 +12,8 @@
                     <li class="list-inline-item"><a class="h2 text-white font-secondary" asp-controller="Home" asp-action="Index">Analysis</a></li>
                     <li class="list-inline-item text-white h3 font-secondary nasted">Unsupervised</li>
                 </ul>
-                <p class="text-white mb-0">Our courses offer a good compromise between the continuous assessment favoured by some universities and the emphasis placed on final exams by others.</p>
+                <p class="text-white mb-0">This was an unsupervised model were we were exploring any relationships regarding head direction of the individuals being burried.
+                This model relates to our supervised model to see if we can find anything else that would confirm or disprove the original hypothesis.</p>
             </div>
         </div>
     </div>
@@ -22,12 +23,20 @@
 <section class="section-sm bg-gray">
     <div class="container">
         <div class="row">
-            <div class="col-12 mb-4">
-                <img src="~/images/blog/blog-single.jpg" alt="blog-thumb" class="img-fluid w-100">
+            <div class="row" style="background-color: white;">
+                <div class="col-4">
+                    <img src="~/images/us1.png" alt="Unsupervised1" class="img-fluid w-100">
+                </div>
+                <div class="col-4">
+                    <img src="~/images/us2.png" alt="Unsupervised2" class="img-fluid w-100">
+                </div>
+                <div class="col-4">
+                    <img src="~/images/us4.png" alt="Unsupervised4" class="img-fluid w-100">
+                </div>
             </div>
             <div class="col-12">
                 <ul class="list-inline">
-                    <li class="list-inline-item mr-4 mb-3 mb-md-0 text-light">August 28, 2017</li>
+                    <li class="list-inline-item mr-4 mb-3 mb-md-0 text-light">April 12, 2023</li>
                 </ul>
             </div>
             <!-- border -->
@@ -36,37 +45,25 @@
             </div>
             <!-- blog contect -->
             <div class="col-12 mb-5">
-                <h2>Lorem ipsum dolor amet, consectetur adipisicing eiusmod tempor </h2>
+                <h2>About the model</h2>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                    anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                    laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-                    dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                    consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
-                    ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut
-                    labore et dolore magnam aliquam quaerat voluptatem.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                    anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                    laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-                    dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                    consequuntur magni dolores eos qui ratione voluptatem s
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                    anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                    laudantium, totam rem aperiam,
-                </p>
+                    How to read the graph:<br /> <br />
+
+                    Keep in mind that this graph was scaled so that there is no skewness in the data. If this data was not scaled then that would translate to
+                    an in accuracte model. So currently all data points are on the same scale.
+
+                    <br /><br />Depth is shown on a scale from -2 to 3. 3 being the depest that a person was burried and -2 being the closest to the surface someone was burried.
+                    <br />
+                    <br />Length is on a scale of -2 to 1.5. For this, length is the height of the mummy and -2 would be the shortest mummy length and 1.5 would be the tallest.<br />
+
+                    <br />headdirection_W is on a scale of -2.5 to 0. This represent a boolean of true or false. So all the data points closest to 0 represent the individual
+                    being burried with there head facing West. So on the contrary all the data points closest to -2.5 would be facing East.<br />
+                    <br />
+                    Here are somethings that can be predicted from the model. This model relates to the supervised model about predicting head direction.
+                    Based on what is seen in the data, a lot of the individuals were burried with their head facing east. It was a lot more common
+                    in the newer generations to be burried with the head facing east. Due to inadequate data to determine whether the individual was a male or a female
+                    we cannot draw any correlations to whether or not gender has any significant role in the direction of the head. From what is shown, the only strong
+                    correlations that can be gathered is between depth and the direction of the head.
             </div>
         </div>
     </div>
