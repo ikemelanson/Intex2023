@@ -5,140 +5,141 @@
 <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" />
 <link rel="stylesheet" href="//cdn.datatables.net/select/1.2.5/css/select.dataTables.min.css" />
 <link rel="stylesheet" href="//cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css" />
+
 <div class="container">
 
-<h2>User List</h2>
+    <h2>User List</h2>
 
-<div class="row">
-    <div class="col-md-12">
-        <table id="usersTable" class="table table-striped table-bordered" data-processing="true" data-server-side="true" data-ajax="/api/UserList">
-            <thead>
-                <tr>
-                    <th data-data="id">Id</th>
-                    <th data-data="email">Email</th>
-                    <th data-data="userName">UserName</th>
-                    <th data-data="displayName" data-default-content="" data-orderable="false">Name</th>
-                    <th data-data="roles" data-orderable="false">Roles</th>
-                    <th data-data="lockedOut" data-orderable="false">Locked</th>
-                </tr>
-            </thead>
-        </table>
+    <div class="row">
+        <div class="col-md-12">
+            <table id="usersTable" class="table table-striped table-bordered" data-processing="true" data-server-side="true" data-ajax="/api/UserList">
+                <thead>
+                    <tr>
+                        <th data-data="id">Id</th>
+                        <th data-data="email">Email</th>
+                        <th data-data="userName">UserName</th>
+                        <th data-data="displayName" data-default-content="" data-orderable="false">Name</th>
+                        <th data-data="roles" data-orderable="false">Roles</th>
+                        <th data-data="lockedOut" data-orderable="false">Locked</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
     </div>
-</div>
-</div>
-<modal id="userModal" title="Add User">
-    <modal-body>
-        <form id="userForm" data-ajax="true" data-ajax-method="POST" data-ajax-url="/api/CreateUser" data-ajax-success="userDone" data-ajax-failure="userFail">
-            <div id="userError" class="alert alert-danger" role="alert"></div>
 
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input name="username" type="text" class="form-control" required />
+    <modal id="userModal" title="Add User">
+        <modal-body>
+            <form id="userForm" data-ajax="true" data-ajax-method="POST" data-ajax-url="/api/CreateUser" data-ajax-success="userDone" data-ajax-failure="userFail">
+                <div id="userError" class="alert alert-danger" role="alert"></div>
 
-                <label for="name">Name:</label>
-                <input name="name" type="text" class="form-control" />
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input name="username" type="text" class="form-control" required />
 
-                <label for="email">Email:</label>
-                <input name="email" type="email" class="form-control" required />
+                    <label for="name">Name:</label>
+                    <input name="name" type="text" class="form-control" />
 
-                <label for="password">Password:</label>
-                <input name="password" type="password" class="form-control" required />
-            </div>
-        </form>
-    </modal-body>
-    <modal-footer dismiss-text="Cancel">
-        <button type="submit" form="userForm" class="btn btn-primary">Create</button>
-    </modal-footer>
-</modal>
+                    <label for="email">Email:</label>
+                    <input name="email" type="email" class="form-control" required />
 
-<modal id="editModal" title="Edit User" size="Large">
-    <modal-body>
-        <form id="editForm" data-ajax="true" data-ajax-method="POST" data-ajax-url="/api/UpdateUser" data-ajax-success="editDone" data-ajax-failure="editFail">
-            <div id="editError" class="alert alert-danger" role="alert"></div>
+                    <label for="password">Password:</label>
+                    <input name="password" type="password" class="form-control" required />
+                </div>
+            </form>
+        </modal-body>
+        <modal-footer dismiss-text="Cancel">
+            <button type="submit" form="userForm" class="btn btn-primary">Create</button>
+        </modal-footer>
+    </modal>
 
-            <ul id="tabs" class="nav nav-tabs" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#user">User</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#roles">Roles</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#claims">Claims</a>
-                </li>
-            </ul>
+    <modal id="editModal" title="Edit User" size="Large">
+        <modal-body>
+            <form id="editForm" data-ajax="true" data-ajax-method="POST" data-ajax-url="/api/UpdateUser" data-ajax-success="editDone" data-ajax-failure="editFail">
+                <div id="editError" class="alert alert-danger" role="alert"></div>
 
-            <br />
+                <ul id="tabs" class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#user">User</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#roles">Roles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#claims">Claims</a>
+                    </li>
+                </ul>
 
-            <div class="tab-content">
-                <div id="user" class="tab-pane active">
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input name="email" type="email" class="form-control" required />
-                        <label for="locked">Locked:</label>
-                        <input name="locked" type="checkbox" class="checkbox" value="true" style="display:flex">
-                        <input name="id" type="hidden" />
+                <br />
+
+                <div class="tab-content">
+                    <div id="user" class="tab-pane active">
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input name="email" type="email" class="form-control" required />
+                            <label for="locked">Locked:</label>
+                            <input name="locked" type="checkbox" class="checkbox" value="true" style="display:flex">
+                            <input name="id" type="hidden" />
+                        </div>
+                    </div>
+                    <div id="roles" class="tab-pane">
+                        <div class="form-group">
+                            @foreach (var role in ViewBag.Roles)
+                            {
+                                <div class="checkbox">
+                                    <label><input name="roles" type="checkbox" value="@role.Value">@role.Value</label>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div id="claims" class="tab-pane">
+                        <table id="claimsTable" class="table table-sm">
+                            <tbody>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Value</th>
+                                    <th>Action</th>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td>
+                                        <select id="newType" asp-items="@(new SelectList(ViewBag.ClaimTypes))">
+                                            <option></option>
+                                        </select>
+                                    </td>
+                                    <td><input id="newValue" type="text"></td>
+                                    <td><a id="addClaim" href="#">Add</a></td>
+                                </tr>
+                            </tfoot>
+                        </table>
                     </div>
                 </div>
-                <div id="roles" class="tab-pane">
-                    <div class="form-group">
-                        @foreach (var role in ViewBag.Roles)
-                        {
-                            <div class="checkbox">
-                                <label><input name="roles" type="checkbox" value="@role.Value">@role.Value</label>
-                            </div>
-                        }
-                    </div>
+            </form>
+        </modal-body>
+        <modal-footer dismiss-text="Cancel">
+            <button type="submit" form="editForm" class="btn btn-primary">Update</button>
+        </modal-footer>
+    </modal>
+
+    <modal id="pwdModal" title="Reset Password">
+        <modal-body>
+            <form id="pwdForm" data-ajax="true" data-ajax-method="POST" data-ajax-url="/api/ResetPassword" data-ajax-success="pwdDone" data-ajax-failure="pwdFail">
+                <div id="pwdError" class="alert alert-danger" role="alert"></div>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input name="password" type="password" class="form-control" required />
+                    <label for="verify">Verify:</label>
+                    <input name="verify" type="password" class="form-control" required />
+                    <input name="id" type="hidden" />
                 </div>
-                <div id="claims" class="tab-pane">
-                    <table id="claimsTable" class="table table-sm">
-                        <tbody>
-                            <tr>
-                                <th>Type</th>
-                                <th>Value</th>
-                                <th>Action</th>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td>
-                                    <select id="newType" asp-items="@(new SelectList(ViewBag.ClaimTypes))">
-                                        <option></option>
-                                    </select>
-                                </td>
-                                <td><input id="newValue" type="text"></td>
-                                <td><a id="addClaim" href="#">Add</a></td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-            </div>
-        </form>
-    </modal-body>
-    <modal-footer dismiss-text="Cancel">
-        <button type="submit" form="editForm" class="btn btn-primary">Update</button>
-    </modal-footer>
-</modal>
-
-<modal id="pwdModal" title="Reset Password">
-    <modal-body>
-        <form id="pwdForm" data-ajax="true" data-ajax-method="POST" data-ajax-url="/api/ResetPassword" data-ajax-success="pwdDone" data-ajax-failure="pwdFail">
-            <div id="pwdError" class="alert alert-danger" role="alert"></div>
-
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input name="password" type="password" class="form-control" required />
-                <label for="verify">Verify:</label>
-                <input name="verify" type="password" class="form-control" required />
-                <input name="id" type="hidden" />
-            </div>
-        </form>
-    </modal-body>
-    <modal-footer dismiss-text="Cancel">
-        <button type="submit" form="pwdForm" class="btn btn-primary">Reset</button>
-    </modal-footer>
-</modal>
-
+            </form>
+        </modal-body>
+        <modal-footer dismiss-text="Cancel">
+            <button type="submit" form="pwdForm" class="btn btn-primary">Reset</button>
+        </modal-footer>
+    </modal>
+</div>
 @section Scripts {
     <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="//cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
