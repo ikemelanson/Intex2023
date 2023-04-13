@@ -84,33 +84,33 @@ app.UseAuthorization();
 //});
 
 
+//app.MapControllerRoute(
+//    name: "roles/users",
+//    pattern: "{area:exists}/{controller=Home}/{action=Roles}");
 app.MapControllerRoute(
-    name: "roles/users",
-    pattern: "{area}/{controller=Home}/{action=Roles}");
-app.MapControllerRoute(
-    name: "categorypage",
-    pattern: "{burialhaircolor}/Page{pageNum}",
-    defaults: new { controller = "Home", action = "BurialRecords" });
-app.MapControllerRoute(
-    name: "paging",
-    pattern: "Page{pageNum}",
-    defaults: new { controller = "Home", action = "BurialRecords", pageNum = 1});
-app.MapControllerRoute(
-    name: "category",
+name: "category",
     pattern: "{burialhaircolor}",
     defaults: new { controller = "Home", action = "BurialRecords", pageNum = 1 });
-//app.MapControllerRoute(
-//    name: "sexandpage",
-//    pattern: "Sex{sex}/Page{pageNum}",
-//    defaults: new { controller = "Home", action = "BurialRecords", pageNum = 1 });
-//app.MapControllerRoute(
-//    name: "sex",
-//    pattern: "Sex{sex}",
-//    defaults: new { controller = "Home", action = "BurialRecords", pageNum = 1 });
-//app.MapControllerRoute(
-//    name: "sex and hair",
-//    pattern: "{burialhaircolor}/Page{pageNum}/Sex{sex}",
-//    defaults: new { controller = "Home", action = "BurialRecords", pageNum = 1 });
+app.MapControllerRoute(
+    name: "sexandpage",
+    pattern: "Sex{sex}/Page{pageNum}",
+    defaults: new { controller = "Home", action = "BurialRecords", pageNum = 1 });
+app.MapControllerRoute(
+    name: "sexandpage",
+    pattern: "Sex{sex}/Hair{burialhaircolor}Page{pageNum}",
+    defaults: new { controller = "Home", action = "BurialRecords", pageNum = 1 });
+app.MapControllerRoute(
+    name: "sex",
+    pattern: "Sex{sex}",
+    defaults: new { controller = "Home", action = "BurialRecords", pageNum = 1 });
+app.MapControllerRoute(
+    name: "sex and hair",
+    pattern: "{burialhaircolor}/Page{pageNum}/Sex{sex}",
+    defaults: new { controller = "Home", action = "BurialRecords", pageNum = 1 });
+app.MapControllerRoute(
+    name: "north and east",
+    pattern: "{northsouth}/Page{pageNum}/EastWest{eastwest}/{headdirection}",
+    defaults: new { controller = "Home", action = "BurialRecords", pageNum = 1 });
 app.MapControllerRoute(
     name: "normal/default",
     pattern: "{controller=Home}/{action=Index}");

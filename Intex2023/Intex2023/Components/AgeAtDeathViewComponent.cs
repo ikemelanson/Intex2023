@@ -17,7 +17,7 @@ namespace Intex2023.Components
         }
         public IViewComponentResult Invoke()
         {
-            ViewBag.SelectedEstimateStature = RouteData?.Values["ageatdeath"];
+            ViewBag.SelectedAgeAtDeath = RouteData?.Values["ageatdeath"];
             var ageatdeath = repo.burialmain
                 .Select(x => x.ageatdeath)
                 .Distinct()

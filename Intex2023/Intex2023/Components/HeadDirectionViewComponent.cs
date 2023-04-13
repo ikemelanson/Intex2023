@@ -17,7 +17,7 @@ namespace Intex2023.Components
         }
         public IViewComponentResult Invoke()
         {
-            ViewBag.SelectedEstimateStature = RouteData?.Values["headdirection"];
+            ViewBag.SelectedHeadDirection = RouteData?.Values["headdirection"];
             var headdirection = repo.burialmain
                 .Select(x => x.headdirection)
                 .Distinct()
