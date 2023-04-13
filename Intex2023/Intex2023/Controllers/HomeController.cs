@@ -105,23 +105,22 @@ namespace Intex2023.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddRecord(Burial ar)
+        public IActionResult AddRecord(Burial b)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                context.Add(ar);
+                context.Add(b);
                 context.SaveChanges();
 
-                return View("Confirmation", ar);
+                return View("Confirmation", b);
             }
             else
             {
                 ViewBag.burialmain = context.burialmain.ToList();
 
-                return View(ar);
+                return View(b);
             }
         }
-
 
         [HttpGet]
         public IActionResult Edit(long ID)
@@ -153,5 +152,21 @@ namespace Intex2023.Controllers
             return RedirectToAction("BurialRecords");
         }
 
+        public int GetNextId()
+        {
+            using (var context = new BurialContext()) 
+            {
+                var lastBurial = context.burialmain
+                    .OrderByDescending(b => b.id)
+                    .FirstOrDefault();
+
+                if (lastBurial != null)
+                {
+                    return (int)(long)(lastBurial.id + 1);
+                }
+
+                return 1;
+            }
+        }
     }
 }

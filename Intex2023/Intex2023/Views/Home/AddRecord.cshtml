@@ -1,16 +1,13 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
     ViewData["Title"] = "Add a Record";
+    var nextId = ViewBag.NextId;
 }
 @model Burial
+
 <h1>Add a Record</h1>
 <div>
     <form method="post">
         <div asp-validation-summary="All"></div>
-
-        <input type="hidden" name="id" id="id-field" value="" />
 
         <label asp-for="depth">Depth:</label>
         <input asp-for="depth" /><br />
@@ -110,9 +107,3 @@
         <button type="submit">Submit Application</button>
     </form>
 </div>
-
-<script>let id = 20000000000000050;
-
-  document.querySelector('form').addEventListener('submit', function() {
-    document.querySelector('#id-field').value = ++id; 
-  });</script>
