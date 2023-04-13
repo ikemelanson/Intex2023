@@ -2,7 +2,6 @@ using Intex2023.Data;
 using Intex2023.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.ML.OnnxRuntime;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("ApplicationDbContextConnection");
@@ -26,11 +25,6 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
     builder.Services.AddControllersWithViews();
 
-
-builder.Services.AddSingleton<InferenceSession>(
-  new InferenceSession("wwwroot/supervised.onnx")
-);
-
 builder.Services.Configure<CookiePolicyOptions>(options =>
 {
     options.CheckConsentNeeded = context => true;
@@ -48,8 +42,6 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequiredLength = 13;
     options.Password.RequiredUniqueChars = 7;
 });
-
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -100,6 +92,18 @@ app.MapControllerRoute(
     name: "category",
     pattern: "{burialhaircolor}",
     defaults: new { controller = "Home", action = "BurialRecords", pageNum = 1 });
+//app.MapControllerRoute(
+//    name: "sexandpage",
+//    pattern: "Sex{sex}/Page{pageNum}",
+//    defaults: new { controller = "Home", action = "BurialRecords", pageNum = 1 });
+//app.MapControllerRoute(
+//    name: "sex",
+//    pattern: "Sex{sex}",
+//    defaults: new { controller = "Home", action = "BurialRecords", pageNum = 1 });
+//app.MapControllerRoute(
+//    name: "sex and hair",
+//    pattern: "{burialhaircolor}/Page{pageNum}/Sex{sex}",
+//    defaults: new { controller = "Home", action = "BurialRecords", pageNum = 1 });
 app.MapControllerRoute(
     name: "normal/default",
     pattern: "{controller=Home}/{action=Index}");
