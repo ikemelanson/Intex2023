@@ -6,7 +6,7 @@
 
 @model IEnumerable<string>
 
-<div class="d-grid gap-2">
+<div class="d-grid gap-2 text-center">
 
     <a asp-controller="Home" asp-action="BurialRecords" asp-route-burialhaircolor="" asp-route-pageNum="1" class="btn @(ViewBag.SelectedType == null ? "btn-primary" : "btn-outline-secondary")">No Haircolor Filtering</a>
 
@@ -16,3 +16,4 @@
            class="btn @(ViewBag.SelectedType == t ? "btn-primary" : "btn-outline-secondary")">@t</a>
     }
 </div>
+<br />
