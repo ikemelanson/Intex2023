@@ -119,7 +119,7 @@ app.MapControllerRoute(
     defaults: new { area = "" });
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
 

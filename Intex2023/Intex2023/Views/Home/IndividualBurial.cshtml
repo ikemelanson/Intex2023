@@ -65,7 +65,7 @@
                             <div class="d-flex align-items-center">
                                 <div class="text-left">
                                     <h6 class="mb-0">EXCAVATION DATE</h6>
-                                <p class="mb-0">@(String.IsNullOrEmpty(Model.dateofexcavation) ? "No Data" : Model.dateofexcavation)</p>
+                                <p class="mb-0">@(Model.dateofexcavation == null ? "No Data" : Model.dateofexcavation)</p>
                                 </div>
                             </div>
                         </li>

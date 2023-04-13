@@ -42,10 +42,9 @@ namespace Intex2023.Models
         public string? photos { get; set; }
         public string? hair { get; set; }
         public string? burialmaterials { get; set; }
-        public string? dateofexcavation { get; set; }
+        public DateOnly? dateofexcavation { get; set; }
         public string? fieldbookexcavationyear { get; set; }
         public string? clusternumber { get; set; }
         public string? shaftnumber { get; set; }
-
     }
 }

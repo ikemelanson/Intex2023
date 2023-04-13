@@ -10,11 +10,12 @@
     <div class="container">
         <div class="row" style="background: #FFCD6E; opacity:0.9;">
             <div class="col-md-8">
-                <ul class="list-inline custom-breadcrumb mb-2" >
+                <ul class="list-inline custom-breadcrumb mb-2">
                     <li class="list-inline-item"><a class="h2 font-secondary" asp-controller="Home" asp-action="Index" style="color:white;">Home</a></li>
                     <li class="list-inline-item text-white h3 font-secondary nasted">All Burial Records</li>
                 </ul>
                 <p class="mb-0" style="color:white;">This page displays all excavated burials and relevant details about the burials. Come back often to see what new information has been discovered</p>
+                <a asp-area="" asp-controller="Home" asp-action="AddRecord" class="btn btn-primary btn-sm">Add a record</a>
             </div>
         </div>
     </div>

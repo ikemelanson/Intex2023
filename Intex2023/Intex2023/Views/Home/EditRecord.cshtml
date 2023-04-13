@@ -1,0 +1,109 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Edit a Record";
+}
+@model Burial
+<h1>Edit a Record</h1>
+<div>
+    <form method="post">
+        <div asp-validation-summary="All"></div>
+        <label asp-for="depth">Depth:</label>
+        <input asp-for="depth" /><br />
+
+        <label asp-for="headdirection">Head Direction: </label>
+        <input asp-for="headdirection" /><br />
+
+        <label asp-for="ageatdeath">Age at death: </label>
+        <input asp-for="ageatdeath" /><br />
+
+        <label asp-for="dateofexcavation">Date of excavation: </label>
+        <input asp-for="dateofexcavation" /><br />
+
+        <label asp-for="dataexpertinitials">Expert Initials: </label>
+        <input asp-for="dataexpertinitials" /><br />
+
+        <label asp-for="sex">Sex: </label>
+        <select asp-for="sex">
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+            <option value="U">Unknown</option>
+        </select><br /><br />
+
+        <label asp-for="text">Description: </label>
+        <textarea asp-for="text"></textarea> <br />
+
+        <label asp-for="squarenorthsouth">Square North South: </label>
+        <input asp-for="squarenorthsouth" /><br />
+
+        <label asp-for="squareeastwest">Square East West: </label>
+        <input asp-for="squareeastwest" /><br />
+
+        <label asp-for="northsouth">North South: </label>
+        <input asp-for="northsouth" /><br />
+
+        <label asp-for="eastwest">East West: </label>
+        <input asp-for="eastwest" /><br />
+
+        <label asp-for="shaftnumber">Shaft Number: </label>
+        <input asp-for="shaftnumber" /><br />
+
+        <label asp-for="clusternumber">Cluster Number: </label>
+        <input asp-for="clusternumber" /><br />
+
+        <label asp-for="samplescollected">Samples Collected: </label>
+        <input asp-for="samplescollected" /><br />
+
+        <label asp-for="area">Area: </label>
+        <input asp-for="area" /><br />
+
+        <label asp-for="burialid">Burial ID: </label>
+        <input asp-for="burialid" /><br />
+
+        <label asp-for="adultsubadult">Developmental Stage: </label>
+        <input asp-for="adultsubadult" /><br />
+
+        <label asp-for="facebundles">Face bundels: </label>
+        <input asp-for="facebundles" /><br />
+
+        <label asp-for="preservation">Preservation: </label>
+        <input asp-for="preservation" /><br />
+
+        <label asp-for="wrapping">Wrapping: </label>
+        <input asp-for="wrapping" /><br />
+
+        <label asp-for="fieldbookpage">Field Book page: </label>
+        <input asp-for="fieldbookpage" /><br />
+
+        <label asp-for="goods">Goods: </label>
+        <input asp-for="goods" /><br />
+
+        <label asp-for="excavationrecorder">Excavation Recorder: </label>
+        <input asp-for="excavationrecorder" /><br />
+
+        <label asp-for="hair">Hair: </label>
+        <input asp-for="hair" /><br />
+
+        <label asp-for="haircolor">Hair Color: </label>
+        <input asp-for="haircolor" /><br />
+
+        <label asp-for="burialmaterials">Burial Materials: </label>
+        <input asp-for="burialmaterials" /><br />
+
+        <label asp-for="southtofeet">South to Feet: </label>
+        <input asp-for="southtofeet" /><br />
+
+        <label asp-for="westtofeet">West to Feet: </label>
+        <input asp-for="westtofeet" /><br />
+
+        <label asp-for="southtohead">South to Head: </label>
+        <input asp-for="southtohead" /><br />
+
+        <label asp-for="westtohead">West to Head: </label>
+        <input asp-for="westtohead" /><br />
+
+
+        <button type="submit">Submit Application</button>
+    </form>
+</div>
