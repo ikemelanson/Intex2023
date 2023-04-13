@@ -10,9 +10,15 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("ApplicationDbContextConnection");
 
 // Add services to the container.
-var loginConnectionString = builder.Configuration["ConnectionStrings:LoginConnection"];
-var burialConnectionString = builder.Configuration["ConnectionStrings:BurialConnection"];
 
+//Use if in Dev
+//var loginConnectionString = builder.Configuration["ConnectionStrings:LoginConnection"];
+//var burialConnectionString = builder.Configuration["ConnectionStrings:BurialConnection"];
+
+
+//Use for Prod
+var loginConnectionString = Helpers.GetRDSConnectionStringLogin();
+var burialConnectionString = Helpers.GetRDSConnectionStringBurial();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(loginConnectionString));
