@@ -8,8 +8,8 @@
     var user = await UserManager.GetUserAsync(User);
     if (user != null && !await UserManager.GetTwoFactorEnabledAsync(user))
     {
-        <div id="MFAcheck" class="text-center">
-            <p>Make sure to enable multifactor authentication <a href="/Identity/Account/Manage/TwoFactorAuthentication">here</a> so your account is safe!</p>
+        <div id="MFAcheck" style="height: 4vh;">
+            <p style="font-size: 20px;line-height: inherit;" class="text-center">Make sure to enable multifactor authentication <a href="/Identity/Account/Manage/TwoFactorAuthentication">here</a> so your account is safe!</p>
         </div>
     }
 }
