@@ -18,7 +18,7 @@ namespace Intex2023.Controllers
             return View();
         }
 
-        public IActionResult BurialRecords(string burialhaircolor, int pageNum = 1)
+        public IActionResult BurialRecords(string burialhaircolor, string sex, int pageNum = 1)
         {
             //var filterOptions = new List<string> { "Option 1", "Option 2", "Option 3" };
             //ViewBag.FilterOptions = filterOptions;
@@ -29,6 +29,8 @@ namespace Intex2023.Controllers
             {
                 burialmain = repo.burialmain
                 .Where(b => b.haircolor == burialhaircolor || burialhaircolor == null)
+                .Where(b => b.sex == sex || sex == null)
+
                 //.OrderBy(b => b.Title)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
@@ -36,7 +38,7 @@ namespace Intex2023.Controllers
                 PageInfo = new PageInfo
                 {
                     TotalNumRecords =
-                        (burialhaircolor == null ? repo.burialmain.Count() : repo.burialmain.Where(x => x.haircolor == burialhaircolor).Count()),
+                        (burialhaircolor == null && sex == null ? repo.burialmain.Count() : repo.burialmain.Where(x => x.haircolor == burialhaircolor).Where(x => x.sex == sex).Count()),
                     BurialsPerPage = pageSize,
                     CurrentPage = pageNum
                 }
