@@ -1,5 +1,18 @@
 ﻿@*@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+@model IEnumerable<string>
+
+<div class="d-grid gap-2 text-center">
+
+    <a asp-area="" asp-controller="Home" asp-action="BurialRecords" asp-route-sex="@ViewBag.SelectedSex" asp-route-burialhaircolor="@ViewBag.SelectedType" asp-route-pageNum="1" class="btn @(ViewBag.SelectedSex == null ? "btn-primary" : "btn-outline-secondary")">No Sex Filtering</a>
+
+    @foreach (string t in Model.Where(s => !string.IsNullOrWhiteSpace(s)))
+    {
+        <a asp-area="" asp-controller="Home" asp-action="BurialRecords" asp-route-sex="@t" asp-route-pageNum="1"
+           class="btn @(ViewBag.SelectedSex == t ? "btn-primary" : "btn-outline-secondary")">@t</a>
+    }
+</div>
+<br />
 *@
 @{
 }
@@ -8,12 +21,12 @@
 
 <div class="d-grid gap-2 text-center">
 
-    <a asp-controller="Home" asp-action="BurialRecords" asp-route-sex="" asp-route-pageNum="1" class="btn @(ViewBag.SelectedSex == null ? "btn-primary" : "btn-outline-secondary")">No Sex Filtering</a>
+    <a asp-area="" asp-controller="Home" asp-action="BurialRecords" asp-route-sex="" asp-route-pageNum="1" class="btn btn-outline-secondary">No Sex Filtering</a>
 
     @foreach (string t in Model.Where(s => !string.IsNullOrWhiteSpace(s)))
     {
-        <a asp-controller="Home" asp-action="BurialRecords" asp-route-sex="@t" asp-route-pageNum="1"
-           class="btn @(ViewBag.SelectedSex == t ? "btn-primary" : "btn-outline-secondary")">@t</a>
+        <a asp-area="" asp-controller="Home" asp-action="BurialRecords" asp-route-sex="@t" asp-route-pageNum="1"
+           class="btn btn-outline-secondary">@t</a>
     }
 </div>
 <br />

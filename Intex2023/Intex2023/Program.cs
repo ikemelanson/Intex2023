@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.ML.OnnxRuntime;
+using System.Net;
 using DotNetEnv;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -42,6 +43,8 @@ builder.Services.Configure<CookiePolicyOptions>(options =>
 });
 builder.Services.AddScoped<IBurialRepository, EFBurialRepository>();
 
+
+//Cookies
 builder.Services.Configure<IdentityOptions>(options =>
 {
     // Default Password settings.
@@ -53,13 +56,15 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequiredUniqueChars = 7;
 });
 
-builder.Services.AddSingleton<InferenceSession>(
-  new InferenceSession("wwwroot/supervised.onnx")
-);//
+builder.Services.AddSingleton<InferenceSession>(provider => {
+    var env = provider.GetService<IWebHostEnvironment>();
+    var modelPath = Path.Combine(env.ContentRootPath, "wwwroot", "supervised.onnx");
+    return new InferenceSession(modelPath);
+});
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
@@ -67,7 +72,6 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -83,6 +87,8 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+
+//CSP Header
 app.Use(async (context, next) =>
 {
     context.Response.Headers.Add("Content-Security-Policy", "default-src 'self'; " +
@@ -96,30 +102,6 @@ app.Use(async (context, next) =>
 });
 
 app.MapControllerRoute(
-name: "category",
-    pattern: "{burialhaircolor}",
-    defaults: new { controller = "Home", action = "BurialRecords", pageNum = 1 });
-app.MapControllerRoute(
-    name: "sexandpage",
-    pattern: "Sex{sex}/Page{pageNum}",
-    defaults: new { controller = "Home", action = "BurialRecords", pageNum = 1 });
-app.MapControllerRoute(
-    name: "sexandpage",
-    pattern: "Sex{sex}/Hair{burialhaircolor}Page{pageNum}",
-    defaults: new { controller = "Home", action = "BurialRecords", pageNum = 1 });
-app.MapControllerRoute(
-    name: "sex",
-    pattern: "Sex{sex}",
-    defaults: new { controller = "Home", action = "BurialRecords", pageNum = 1 });
-app.MapControllerRoute(
-    name: "sex and hair",
-    pattern: "{burialhaircolor}/Page{pageNum}/Sex{sex}",
-    defaults: new { controller = "Home", action = "BurialRecords", pageNum = 1 });
-app.MapControllerRoute(
-    name: "north and east",
-    pattern: "{northsouth}/Page{pageNum}/EastWest{eastwest}/{headdirection}",
-    defaults: new { controller = "Home", action = "BurialRecords", pageNum = 1 });
-app.MapControllerRoute(
     name: "users",
     pattern: "{area:exists}/{controller=Home}/{action}",
     defaults: new { area = "" });
@@ -127,4 +109,40 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
+app.Run();
+
+//HSTS Header
+builder.Services.AddRazorPages();
+
+builder.Services.AddHsts(options =>
+{
+    options.Preload = true;
+    options.IncludeSubDomains = true;
+    options.MaxAge = TimeSpan.FromDays(60);
+    options.ExcludedHosts.Add("example.com");
+    options.ExcludedHosts.Add("www.example.com");
+});
+
+builder.Services.AddHttpsRedirection(options =>
+{
+    options.RedirectStatusCode = (int)HttpStatusCode.TemporaryRedirect;
+    options.HttpsPort = 5001;
+});
+
+
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Error");
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+app.UseRouting();
+
+app.UseAuthorization();
+
+app.MapRazorPages();
+
 app.Run();

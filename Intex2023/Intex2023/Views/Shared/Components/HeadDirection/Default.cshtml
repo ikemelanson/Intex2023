@@ -8,12 +8,12 @@
 
 <div class="d-grid gap-2 text-center">
 
-    <a asp-controller="Home" asp-action="BurialRecords" asp-route-headdirection="" asp-route-pageNum="1" class="btn @(ViewBag.SelectedHeadDirection == null ? "btn-primary" : "btn-outline-secondary")">No Head Direction Filtering</a>
+    <a asp-controller="Home" asp-action="BurialRecords" asp-route-headdirection="" asp-route-pageNum="1" class="btn btn-outline-secondary">No Head Direction Filtering</a>
 
     @foreach (string t in Model.Where(s => !string.IsNullOrWhiteSpace(s)))
     {
         <a asp-controller="Home" asp-action="BurialRecords" asp-route-headdirection="@t" asp-route-pageNum="1"
-           class="btn @(ViewBag.SelectedHeadDirection == t ? "btn-primary" : "btn-outline-secondary")">@t</a>
+           class="btn btn-outline-secondary">@t</a>
     }
 </div>
 <br />
