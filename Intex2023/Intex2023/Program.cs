@@ -4,15 +4,22 @@ using Intex2023.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.ML.OnnxRuntime;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("ApplicationDbContextConnection");
 
 // Add services to the container.
+
+//Use if in Dev
 var loginConnectionString = builder.Configuration["ConnectionStrings:LoginConnection"];
 var burialConnectionString = builder.Configuration["ConnectionStrings:BurialConnection"];
 
+
+//Use for Prod
+//var loginConnectionString = Helpers.GetRDSConnectionStringLogin();
+//var burialConnectionString = Helpers.GetRDSConnectionStringBurial();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(loginConnectionString));
@@ -33,9 +40,10 @@ builder.Services.Configure<CookiePolicyOptions>(options =>
 {
     options.CheckConsentNeeded = context => true;
     options.MinimumSameSitePolicy = SameSiteMode.None;
+    options.ConsentCookie.SecurePolicy = CookieSecurePolicy.Always;
 });
 builder.Services.AddScoped<IBurialRepository, EFBurialRepository>();
-
+//Cookies
 builder.Services.Configure<IdentityOptions>(options =>
 {
     // Default Password settings.
@@ -49,7 +57,7 @@ builder.Services.Configure<IdentityOptions>(options =>
 
 builder.Services.AddSingleton<InferenceSession>(
   new InferenceSession("wwwroot/supervised.onnx")
-);//
+);
 
 var app = builder.Build();
 
@@ -97,7 +105,4 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
-
-
 app.Run();
-
