@@ -1,6 +1,7 @@
 ﻿using Intex2023.Models;
 using Intex2023.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace Intex2023.Controllers
@@ -94,6 +95,78 @@ namespace Intex2023.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        [HttpGet]
+        public IActionResult AddRecord()
+        {
+            ViewBag.burialmain = context.burialmain.ToList();
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddRecord(Burial b)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Add(b);
+                context.SaveChanges();
+
+                return View("Confirmation", b);
+            }
+            else
+            {
+                ViewBag.burialmain = context.burialmain.ToList();
+
+                return View(b);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Edit(long ID)
+        {
+            ViewBag.burialmain = context.burialmain.ToList();
+            var individual = context.burialmain.SingleOrDefault(x => x.id == ID);
+            return View("EditRecord", individual);
+        }
+        [HttpPost]
+        public IActionResult Edit(Burial b)
+        {
+            context.Update(b);
+            context.SaveChanges();
+            return RedirectToAction("BurialRecords");
+        }
+
+
+        [HttpGet]
+        public IActionResult Delete(long ID)
+        {
+            var individual = context.burialmain.SingleOrDefault(x => x.id == ID);
+            return View(individual);
+        }
+        [HttpPost]
+        public IActionResult Delete(Burial ar)
+        {
+            context.burialmain.Remove(ar);
+            context.SaveChanges();
+            return RedirectToAction("BurialRecords");
+        }
+
+        public int GetNextId()
+        {
+            using (var context = new BurialContext()) 
+            {
+                var lastBurial = context.burialmain
+                    .OrderByDescending(b => b.id)
+                    .FirstOrDefault();
+
+                if (lastBurial != null)
+                {
+                    return (int)(long)(lastBurial.id + 1);
+                }
+
+                return 1;
+            }
         }
     }
 }

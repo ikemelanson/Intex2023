@@ -25,9 +25,9 @@
                 <h4 class="card-title">ID: @Model.id</h4>
             <p class="card-text mb-4">Description: @Model.text
             </p>
-            <a asp-controller="Home" asp-action="IndividualBurial" asp-route-id="@Model.id" class="btn btn-primary btn-sm">View Record</a>
-            <a asp-controller="Home" asp-action="edit" asp-route-id="@Model.id" class="btn btn-primary btn-sm">Edit</a>
-            <a asp-controller="Home" asp-action="delete" asp-route-id="@Model.id" class="btn btn-primary btn-sm">Delete</a>
+            <a asp-controller="Home" asp-action="IndividualBurial" asp-route-id="@Model.id" class="btn btn-primary btn-sm">View Record</a><br /><br />
+            <a asp-area="" asp-controller="Home" asp-action="Edit" asp-route-id="@Model.id" class="btn btn-primary btn-sm">Edit</a>
+            <a asp-area="" asp-controller="Home" asp-action="Delete" asp-route-id="@Model.id" class="btn btn-primary btn-sm">Delete</a><br />
 
         </div>
     </div>
