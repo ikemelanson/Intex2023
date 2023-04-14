@@ -1,7 +1,9 @@
 ﻿using Intex2023.Models;
 using Intex2023.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 using System.Diagnostics;
 
 namespace Intex2023.Controllers
@@ -97,13 +99,14 @@ namespace Intex2023.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult AddRecord()
         {
             ViewBag.burialmain = context.burialmain.ToList();
             return View();
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult AddRecord(Burial b)
         {
@@ -122,6 +125,7 @@ namespace Intex2023.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult Edit(long ID)
         {
@@ -129,6 +133,7 @@ namespace Intex2023.Controllers
             var individual = context.burialmain.SingleOrDefault(x => x.id == ID);
             return View("EditRecord", individual);
         }
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult Edit(Burial b)
         {
@@ -137,13 +142,15 @@ namespace Intex2023.Controllers
             return RedirectToAction("BurialRecords");
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult Delete(long ID)
         {
             var individual = context.burialmain.SingleOrDefault(x => x.id == ID);
             return View(individual);
         }
+
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult Delete(Burial ar)
         {
