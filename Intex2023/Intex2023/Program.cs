@@ -44,6 +44,8 @@ builder.Services.Configure<CookiePolicyOptions>(options =>
     options.ConsentCookie.SecurePolicy = CookieSecurePolicy.Always;
 });
 builder.Services.AddScoped<IBurialRepository, EFBurialRepository>();
+
+
 //Cookies
 builder.Services.Configure<IdentityOptions>(options =>
 {
@@ -72,7 +74,6 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
