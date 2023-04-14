@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace Intex2023.Models
-{
+{//This information links the columns for the database
     public partial class Burial
     {
         [Key]

@@ -4,7 +4,7 @@
 @inject UserManager<ApplicationUser> UserManager
 
 
-
+<!--Changes the navbar based on if they are logged in or not-->
 @if (SignInManager.IsSignedIn(User))
 {
     <li class="nav-item">

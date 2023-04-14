@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Intex2023.Models;
-//Manages the category page
+//Manages the north south filter
 namespace Intex2023.Components
 {
     public class NorthSouthViewComponent : ViewComponent
