@@ -8,12 +8,12 @@
 
 <div class="d-grid gap-2 text-center">
 
-    <a asp-controller="Home" asp-action="BurialRecords" asp-route-eastwest="" asp-route-pageNum="1" class="btn @(ViewBag.SelectedEastWest == null ? "btn-primary" : "btn-outline-secondary")">No East West Filtering</a>
+    <a asp-controller="Home" asp-action="BurialRecords" asp-route-eastwest="" asp-route-pageNum="1" class="btn btn-outline-secondary">No East West Filtering</a>
 
     @foreach (string t in Model.Where(s => !string.IsNullOrWhiteSpace(s)))
     {
         <a asp-controller="Home" asp-action="BurialRecords" asp-route-eastwest="@t" asp-route-pageNum="1"
-           class="btn @(ViewBag.SelectedEastWest == t ? "btn-primary" : "btn-outline-secondary")">@t</a>
+           class="btn btn-outline-secondary">@t</a>
     }
 </div>
 <br />
