@@ -6,20 +6,18 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.ML.OnnxRuntime;
+using DotNetEnv;
 
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("ApplicationDbContextConnection");
+//var connectionString = builder.Configuration.GetConnectionString("ApplicationDbContextConnection");
+
+//Load Environment File
+Env.Load();
 
 // Add services to the container.
-
-//Use if in Dev
-var loginConnectionString = builder.Configuration["ConnectionStrings:LoginConnection"];
-var burialConnectionString = builder.Configuration["ConnectionStrings:BurialConnection"];
-
-
-//Use for Prod
-//var loginConnectionString = Helpers.GetRDSConnectionStringLogin();
-//var burialConnectionString = Helpers.GetRDSConnectionStringBurial();
+// Connection Strings
+var loginConnectionString = "host=" + Env.GetString("DB_HOST") + ";port=" + Env.GetString("DB_PORT") + ";database=" + Env.GetString("DB_NAME_LOGIN") + ";userid=" + Env.GetString("DB_USERID") + ";password=" + Env.GetString("DB_PASSWORD") + ";";
+var burialConnectionString = "host=" + Env.GetString("DB_HOST") + ";port=" + Env.GetString("DB_PORT") + ";database=" + Env.GetString("DB_NAME_BURIAL") + ";userid=" + Env.GetString("DB_USERID") + ";password=" + Env.GetString("DB_PASSWORD") + ";";
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(loginConnectionString));
