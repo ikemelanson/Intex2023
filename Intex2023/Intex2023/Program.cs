@@ -55,13 +55,15 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequiredUniqueChars = 7;
 });
 
-builder.Services.AddSingleton<InferenceSession>(
-  new InferenceSession("wwwroot/supervised.onnx")
-);
+builder.Services.AddSingleton<InferenceSession>(provider => {
+    var env = provider.GetService<IWebHostEnvironment>();
+    var modelPath = Path.Combine(env.ContentRootPath, "wwwroot", "supervised.onnx");
+    return new InferenceSession(modelPath);
+});
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
