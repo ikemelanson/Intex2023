@@ -43,7 +43,7 @@ builder.Services.Configure<CookiePolicyOptions>(options =>
     options.ConsentCookie.SecurePolicy = CookieSecurePolicy.Always;
 });
 builder.Services.AddScoped<IBurialRepository, EFBurialRepository>();
-
+//Cookies
 builder.Services.Configure<IdentityOptions>(options =>
 {
     // Default Password settings.
